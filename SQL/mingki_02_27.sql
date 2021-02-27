@@ -127,6 +127,30 @@ INSERT INTO IDOL_MEMBER VALUES ('(여자)아이들','소연','','19980826','V LIVE');
 INSERT INTO IDOL_MEMBER VALUES ('(여자)아이들','우기','','19990923','V LIVE');
 INSERT INTO IDOL_MEMBER VALUES ('(여자)아이들','수화','','20000106','V LIVE');
 
--- NULL값이 원래 가장 먼저 나오지만 NULL값을 마지막으로 보내고 싶을 때
+-- 내림차순에서는 NULL값이 원래 가장 먼저 나오지만 NULL값을 마지막으로 보내고 싶을 때
 SELECT *FROM idol_member
 ORDER BY real_name DESC NULLS LAST;
+
+-- 오름차순에서는 NULL값이 가장 밑으로 감 NULL값을 맨 위로 올리고 싶을때
+SELECT *FROM idol_member
+ORDER BY real_name NULLS FIRST;
+
+-- 두개의 칼럼으로 정렬하고 싶을 떄
+SELECT *FROM idol_member
+ORDER BY real_name ,birthday;
+
+SELECT * FROM idol_member;
+
+-- AILAS : A => IDOL_GROUP을 A로 지칭하겠다
+-- INNER JOIN A와 B테이블에 함께 있는것들만 나열
+SELECT a.company,a.group_name,b.member_name,b.real_name FROM idol_group A,idol_member B 
+-- A와 B의 공통 내역 (연결고리)
+WHERE a.group_name = b.group_name;
+
+-- 각각의 그룹에 몇명의 멤버가 있는지 보고싶을 때
+-- COUNT사용시에는 GROUP BY 사용해야한다
+SELECT a.company,a.group_name, COUNT(b.member_name) COUNT
+FROM idol_group A, idol_member B 
+WHERE a.group_name = b.group_name
+GROUP BY a.company,a.group_name;
+
