@@ -28,4 +28,5 @@ comment on column member2.member_joindate is '가입일';
 INSERT INTO member2 VALUES (
 '1234java','1234567j!','mingki','배현','m','skfksnfk@gmail.com','010-3078-0694',
 '1991-01-04','12345','황제빌라','강서구',sysdate);
+
 select * from member2 ;
