@@ -1,0 +1,14 @@
+/* 2021-03-23 17:39:08 [] */ /* 지금 세션 로그 파일에 기록 중: D:\git_ming\DB\DB\MariaDB\000001.log */
+/* 2021-03-23 17:39:26 [java] */ SHOW CHARSET;
+/* 2021-03-23 17:42:02 [java] */ HELP 'CONTENTS';
+/* 2021-03-23 17:42:07 [java] */ HELP 'Data Types';
+/* 2021-03-23 17:42:08 [java] */ HELP 'AUTO_INCREMENT';
+/* 2021-03-23 17:42:10 [java] */ HELP 'BOOLEAN';
+/* 2021-03-23 17:42:11 [java] */ HELP 'CHAR';
+/* 2021-03-23 17:42:12 [java] */ HELP 'DATE';
+/* 2021-03-23 17:42:15 [java] */ HELP 'ENUM';
+/* 2021-03-23 17:42:16 [java] */ HELP 'Numeric Data Type Overview';
+/* 2021-03-23 17:42:22 [java] */ HELP 'Functions';
+/* 2021-03-23 17:42:30 [java] */ HELP 'Dynamic Column Functions';
+/* 2021-03-23 17:42:31 [java] */ HELP 'COLUMN_ADD';
+/* 2021-03-23 17:42:31 
