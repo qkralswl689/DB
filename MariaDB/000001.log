@@ -11,4 +11,4 @@
 /* 2021-03-23 17:42:22 [java] */ HELP 'Functions';
 /* 2021-03-23 17:42:30 [java] */ HELP 'Dynamic Column Functions';
 /* 2021-03-23 17:42:31 [java] */ HELP 'COLUMN_ADD';
-/* 2021-03-23 17:42:31 
+/* 2021-03-23 17:42:31 [java] */ HELP 'COLUMN_CHECK';
