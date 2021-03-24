@@ -1,0 +1,17 @@
+/* 2021-03-24 16:36:47 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-24 16:36:47 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:36:47 [root] */ /* 연결됨. 스레드-ID: 13 */
+/* 2021-03-24 16:36:47 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:36:47 [root] */ SHOW STATUS;
+/* 2021-03-24 16:36:47 [root] */ SELECT NOW();
+/* 2021-03-24 16:36:47 [root] */ SHOW VARIABLES;
+/* 2021-03-24 16:36:47 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:36:47 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:36:47 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-24 16:36:47 [] */ /* Loading file "C:\Users\82104\AppData\Roaming\HeidiSQL\Backups\query-tab-2021-03-24_15-59-51-060.sql" (2 B) into query tab #2 ... */
+/* 2021-03-24 16:37:52 [root] */ CREATE USER 'scott'@'%' IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:37:52 [root] */ /* SQL 오류 (1396): Operation CREATE USER failed for 'scott'@'%' */
+/* 2021-03-24 16:37:52 [root] */ GRANT EXECUTE, PROCESS, SELECT, SHOW DATABASES, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TABLESPACE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, CREATE USER, FILE, LOCK TABLES, RELOAD, REPLICATION CLIENT, REPLICATION SLAVE, SHUTDOWN, SUPER ON *.* TO 'scott'@'%' WITH GRANT OPTION;
+/* 2021-03-24 16:37:52 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:37:52 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 3 쿼리: 0.000 초 */
+/* 2021-03-24 16:37:57 [root] */ /* 127.0.0.1 의 연결이 2021-03-24 16:37:57 에 종료됨 */

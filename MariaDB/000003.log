@@ -1,0 +1,68 @@
+/* 2021-03-24 16:35:44 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-03-24 16:35:44 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-03-24 16:35:47 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-24 16:35:47 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:35:47 [root] */ /* 연결됨. 스레드-ID: 12 */
+/* 2021-03-24 16:35:47 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:35:47 [root] */ SHOW STATUS;
+/* 2021-03-24 16:35:47 [root] */ SELECT NOW();
+/* 2021-03-24 16:35:47 [root] */ SHOW VARIABLES;
+/* 2021-03-24 16:35:47 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:35:47 [root] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-03-24 16:35:48 [root] */ USE `bigdb`;
+/* 2021-03-24 16:35:48 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:35:48 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:35:48 [root] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:35:48 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:35:48 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:35:48 [root] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:35:48 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-24 16:35:48 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-24 16:35:48 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:35:48 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:35:48 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-24 16:35:48 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-03-24 16:35:48 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bigdb';
+/* 2021-03-24 16:35:48 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-24 16:35:48 [] */ /* Loading file "C:\Users\82104\AppData\Roaming\HeidiSQL\Backups\query-tab-2021-03-24_15-59-51-060.sql" (18 B) into query tab #2 ... */
+/* 2021-03-24 16:35:56 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='bigdb' AND TABLE_NAME='bonus' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:35:56 [root] */ SHOW INDEXES FROM `bonus` FROM `bigdb`;
+/* 2021-03-24 16:35:56 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:35:56 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:35:56 [root] */ SHOW ENGINES;
+/* 2021-03-24 16:35:56 [root] */ SHOW COLLATION;
+/* 2021-03-24 16:35:56 [root] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 16:35:58 [root] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 16:36:01 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='bigdb' AND TABLE_NAME='dept' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:36:01 [root] */ SHOW INDEXES FROM `dept` FROM `bigdb`;
+/* 2021-03-24 16:36:01 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:01 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:01 [root] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 16:36:01 [root] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 16:36:02 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='bigdb' AND TABLE_NAME='emp' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:36:02 [root] */ SHOW INDEXES FROM `emp` FROM `bigdb`;
+/* 2021-03-24 16:36:02 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:02 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:02 [root] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 16:36:02 [root] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 16:36:03 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='bigdb' AND TABLE_NAME='salgrade' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:36:03 [root] */ SHOW INDEXES FROM `salgrade` FROM `bigdb`;
+/* 2021-03-24 16:36:03 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:03 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:03 [root] */ SHOW CREATE TABLE `bigdb`.`salgrade`;
+/* 2021-03-24 16:36:03 [root] */ SELECT * FROM `bigdb`.`salgrade` LIMIT 1000;
+/* 2021-03-24 16:36:04 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='bigdb' AND TABLE_NAME='temp' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:36:04 [root] */ SHOW INDEXES FROM `temp` FROM `bigdb`;
+/* 2021-03-24 16:36:04 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:04 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:36:04 [root] */ SHOW CREATE TABLE `bigdb`.`temp`;
+/* 2021-03-24 16:36:04 [root] */ SELECT * FROM `bigdb`.`temp` LIMIT 1000;
+/* 2021-03-24 16:36:14 [root] */ DROP DATABASE `bigdb`;
+/* 2021-03-24 16:36:14 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:36:14 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-24 16:36:14 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-24 16:36:15 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:36:15 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:36:15 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-24 16:36:15 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='information_schema';
+/* 2021-03-24 16:36:29 [root] */ /* 127.0.0.1 의 연결이 2021-03-24 16:36:29 에 종료됨 */

@@ -1,0 +1,837 @@
+/* 2021-03-24 16:39:20 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-24 16:39:20 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:39:20 [root] */ /* 연결됨. 스레드-ID: 16 */
+/* 2021-03-24 16:39:20 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:39:20 [root] */ SHOW STATUS;
+/* 2021-03-24 16:39:20 [root] */ SELECT NOW();
+/* 2021-03-24 16:39:20 [root] */ SHOW VARIABLES;
+/* 2021-03-24 16:39:20 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:39:20 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:39:20 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-24 16:39:20 [] */ /* Loading file "C:\Users\82104\AppData\Roaming\HeidiSQL\Backups\query-tab-2021-03-24_15-59-51-060.sql" (429 B) into query tab #2 ... */
+/* 2021-03-24 16:39:31 [root] */ CREATE USER 'scott'@'%' IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:39:31 [root] */ /* SQL 오류 (1396): Operation CREATE USER failed for 'scott'@'%' */
+/* 2021-03-24 16:39:31 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:39:49 [root] */ SELECT * FROM USER;
+/* 2021-03-24 16:39:49 [root] */ /* SQL 오류 (1046): No database selected */
+/* 2021-03-24 16:39:49 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:40:00 [root] */ USE `mysql`;
+/* 2021-03-24 16:40:02 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='mysql';
+/* 2021-03-24 16:40:02 [root] */ SHOW TABLE STATUS FROM `mysql`;
+/* 2021-03-24 16:40:02 [root] */ SHOW FUNCTION STATUS WHERE `Db`='mysql';
+/* 2021-03-24 16:40:02 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='mysql';
+/* 2021-03-24 16:40:02 [root] */ SHOW TRIGGERS FROM `mysql`;
+/* 2021-03-24 16:40:02 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-24 16:40:02 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-24 16:40:02 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:40:02 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:40:02 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-24 16:40:02 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-03-24 16:40:02 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='mysql';
+/* 2021-03-24 16:40:09 [root] */ SELECT * FROM `information_schema`.`COLUMNS` WHERE TABLE_SCHEMA='mysql' AND TABLE_NAME='user' ORDER BY ORDINAL_POSITION;
+/* 2021-03-24 16:40:09 [root] */ SHOW INDEXES FROM `user` FROM `mysql`;
+/* 2021-03-24 16:40:09 [root] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='mysql'   AND TABLE_NAME='user'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:40:09 [root] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='mysql'   AND TABLE_NAME='user'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 16:40:09 [root] */ SELECT CURRENT_USER();
+/* 2021-03-24 16:40:09 [root] */ SHOW CREATE VIEW `mysql`.`user`;
+/* 2021-03-24 16:40:09 [root] */ SELECT CAST(LOAD_FILE(CONCAT(IFNULL(@@GLOBAL.datadir, CONCAT(@@GLOBAL.basedir, 'data/')), 'mysql/user.frm')) AS CHAR CHARACTER SET utf8);
+/* 2021-03-24 16:40:27 [root] */ CREATE USER 'scott'@'%' IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:40:27 [root] */ /* SQL 오류 (1396): Operation CREATE USER failed for 'scott'@'%' */
+/* 2021-03-24 16:40:27 [root] */ GRANT EXECUTE, PROCESS, SELECT, SHOW DATABASES, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TABLESPACE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, CREATE USER, FILE, LOCK TABLES, RELOAD, REPLICATION CLIENT, REPLICATION SLAVE, SHUTDOWN, SUPER ON *.* TO 'scott'@'%' WITH GRANT OPTION;
+/* 2021-03-24 16:40:27 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:40:27 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 3 쿼리: 0.000 초 */
+/* 2021-03-24 16:41:27 [root] */ CREATE DATABASE scott;
+/* 2021-03-24 16:41:27 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:41:50 [root] */ CREATE USER 'scott' IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:41:50 [root] */ /* SQL 오류 (1396): Operation CREATE USER failed for 'scott'@'%' */
+/* 2021-03-24 16:41:50 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:42:08 [root] */ CREATE DATABASE scott
+
+CREATE USER 'scott'IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:42:08 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE USER 'scott'IDENTIFIED BY 'tiger'' at line 3 */
+/* 2021-03-24 16:42:08 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:42:34 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:42:34 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:42:40 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:42:40 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:42:44 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:42:44 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:42:51 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:42:51 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:42:57 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:42:57 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:43:02 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:43:02 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:43:18 [scott] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:43:18 [scott] */ /* Access denied for user 'scott'@'localhost' (using password: YES) */
+/* 2021-03-24 16:43:24 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-03-24 16:43:24 [java] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:43:24 [java] */ /* 연결됨. 스레드-ID: 24 */
+/* 2021-03-24 16:43:24 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:43:24 [java] */ SHOW STATUS;
+/* 2021-03-24 16:43:24 [java] */ SELECT NOW();
+/* 2021-03-24 16:43:24 [java] */ SHOW VARIABLES;
+/* 2021-03-24 16:43:24 [root] */ SHOW CREATE VIEW `mysql`.`user`;
+/* 2021-03-24 16:43:24 [root] */ SELECT CAST(LOAD_FILE(CONCAT(IFNULL(@@GLOBAL.datadir, CONCAT(@@GLOBAL.basedir, 'data/')), 'mysql/user.frm')) AS CHAR CHARACTER SET utf8);
+/* 2021-03-24 16:43:24 [java] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-03-24 16:43:24 [java] */ USE `bigdb`;
+/* 2021-03-24 16:43:24 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:29 [root] */ SHOW CREATE VIEW `mysql`.`user`;
+/* 2021-03-24 16:43:29 [root] */ SELECT CAST(LOAD_FILE(CONCAT(IFNULL(@@GLOBAL.datadir, CONCAT(@@GLOBAL.basedir, 'data/')), 'mysql/user.frm')) AS CHAR CHARACTER SET utf8);
+/* 2021-03-24 16:43:29 [java] */ USE `bigdb`;
+/* 2021-03-24 16:43:29 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:30 [root] */ SHOW CREATE VIEW `mysql`.`user`;
+/* 2021-03-24 16:43:30 [root] */ SELECT CAST(LOAD_FILE(CONCAT(IFNULL(@@GLOBAL.datadir, CONCAT(@@GLOBAL.basedir, 'data/')), 'mysql/user.frm')) AS CHAR CHARACTER SET utf8);
+/* 2021-03-24 16:43:31 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:43:31 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:43:31 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:31 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:43:31 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:43:31 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:43:31 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:31 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 16:43:37 [java] */ USE `bigdb`;
+/* 2021-03-24 16:43:37 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:38 [root] */ SHOW CREATE VIEW `mysql`.`user`;
+/* 2021-03-24 16:43:38 [root] */ SELECT CAST(LOAD_FILE(CONCAT(IFNULL(@@GLOBAL.datadir, CONCAT(@@GLOBAL.basedir, 'data/')), 'mysql/user.frm')) AS CHAR CHARACTER SET utf8);
+/* 2021-03-24 16:43:41 [root] */ /* 127.0.0.1 의 연결이 2021-03-24 16:43:41 에 종료됨 */
+/* 2021-03-24 16:43:41 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 16:43:43 [java] */ USE `bigdb`;
+/* 2021-03-24 16:43:43 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:59 [java] */ USE bigdb;
+/* 2021-03-24 16:43:59 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:43:59 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:44:23 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-24 16:44:23 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:44:23 [root] */ /* 연결됨. 스레드-ID: 25 */
+/* 2021-03-24 16:44:23 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:44:23 [root] */ SHOW STATUS;
+/* 2021-03-24 16:44:23 [root] */ SELECT NOW();
+/* 2021-03-24 16:44:23 [root] */ SHOW VARIABLES;
+/* 2021-03-24 16:44:23 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:44:23 [root] */ SHOW OPEN TABLES FROM mysql WHERE `in_use`!=0;
+/* 2021-03-24 16:44:23 [root] */ USE `mysql`;
+/* 2021-03-24 16:44:23 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:44:23 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='mysql';
+/* 2021-03-24 16:44:23 [root] */ SHOW TABLE STATUS FROM `mysql`;
+/* 2021-03-24 16:44:23 [root] */ SHOW FUNCTION STATUS WHERE `Db`='mysql';
+/* 2021-03-24 16:44:23 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='mysql';
+/* 2021-03-24 16:44:23 [root] */ SHOW TRIGGERS FROM `mysql`;
+/* 2021-03-24 16:44:23 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-24 16:44:23 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-24 16:44:24 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:44:24 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:44:24 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-24 16:44:24 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-03-24 16:44:24 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='mysql';
+/* 2021-03-24 16:44:27 [root] */ USE `scott`;
+/* 2021-03-24 16:44:28 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-24 16:44:28 [root] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-24 16:44:28 [root] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:44:28 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:44:28 [root] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-24 16:44:29 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='scott';
+/* 2021-03-24 16:44:36 [root] */ DROP DATABASE `scott`;
+/* 2021-03-24 16:44:36 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:44:46 [root] */ USE bigdb;
+/* 2021-03-24 16:44:46 [root] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:44:46 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:44:55 [java] */ USE `bigdb`;
+/* 2021-03-24 16:44:55 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:44:58 [java] */ USE `bigdb`;
+/* 2021-03-24 16:44:58 [java] */ /* SQL 오류 (1049): Unknown database 'bigdb' */
+/* 2021-03-24 16:45:46 [root] */ CREATE DATABASE bigdb;
+/* 2021-03-24 16:45:46 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:45:53 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:45:53 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:45:54 [root] */ USE `bigdb`;
+/* 2021-03-24 16:45:55 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:45:55 [root] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:45:55 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:45:55 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:45:55 [root] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:45:55 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bigdb';
+/* 2021-03-24 16:46:34 [root] */ CREATE USER 'scott' IDENTIFIED BY 'tiger';
+/* 2021-03-24 16:46:34 [root] */ /* SQL 오류 (1396): Operation CREATE USER failed for 'scott'@'%' */
+/* 2021-03-24 16:46:34 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:50:16 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:50:16 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-03-24 16:50:16 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-03-24 16:50:22 [root] */ SHOW GRANTS FOR 'scott'@'%';
+/* 2021-03-24 16:50:39 [root] */ RENAME USER 'scott'@'%' TO 'scott'@'localhost';
+/* 2021-03-24 16:50:39 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:50:39 [root] */ SHOW GRANTS FOR 'scott'@'localhost';
+/* 2021-03-24 16:50:39 [root] */ SHOW GRANTS FOR 'java'@'localhost';
+/* 2021-03-24 16:50:41 [root] */ SHOW GRANTS FOR 'scott'@'localhost';
+/* 2021-03-24 16:51:06 [root] */ SET PASSWORD FOR 'scott'@'localhost' = PASSWORD('scott');
+/* 2021-03-24 16:51:06 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:51:06 [root] */ SHOW GRANTS FOR 'scott'@'localhost';
+/* 2021-03-24 16:52:03 [root] */ RENAME USER 'scott'@'localhost' TO 'scott'@'%';
+/* 2021-03-24 16:52:03 [root] */ FLUSH PRIVILEGES;
+/* 2021-03-24 16:52:03 [root] */ SHOW GRANTS FOR 'scott'@'%';
+/* 2021-03-24 16:52:37 [root] */ /* 127.0.0.1 의 연결이 2021-03-24 16:52:37 에 종료됨 */
+/* 2021-03-24 16:52:37 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 16:52:42 [java] */ /* 127.0.0.1 의 연결이 2021-03-24 16:52:42 에 종료됨 */
+/* 2021-03-24 16:52:58 [scott] */ /* [scott] 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:52:58 [scott] */ [scott] SELECT CONNECTION_ID();
+/* 2021-03-24 16:52:58 [scott] */ /* [scott] 연결됨. 스레드-ID: 26 */
+/* 2021-03-24 16:52:59 [scott] */ /* [scott] 문자 집합: utf8mb4 */
+/* 2021-03-24 16:52:59 [scott] */ [scott] SHOW STATUS;
+/* 2021-03-24 16:52:59 [scott] */ [scott] SELECT NOW();
+/* 2021-03-24 16:52:59 [scott] */ [scott] SHOW VARIABLES;
+/* 2021-03-24 16:52:59 [scott] */ [scott] SHOW DATABASES;
+/* 2021-03-24 16:52:59 [scott] */ /* [scott] 127.0.0.1 의 연결이 2021-03-24 16:52:59 에 종료됨 */
+/* 2021-03-24 16:53:11 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-03-24 16:53:11 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-03-24 16:53:14 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-24 16:53:14 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:53:14 [root] */ /* 연결됨. 스레드-ID: 28 */
+/* 2021-03-24 16:53:14 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:53:14 [root] */ SHOW STATUS;
+/* 2021-03-24 16:53:14 [root] */ SELECT NOW();
+/* 2021-03-24 16:53:14 [root] */ SHOW VARIABLES;
+/* 2021-03-24 16:53:14 [root] */ SHOW DATABASES;
+/* 2021-03-24 16:53:14 [root] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-03-24 16:53:14 [root] */ USE `bigdb`;
+/* 2021-03-24 16:53:14 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:53:14 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:53:14 [root] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:53:14 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:53:14 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:53:14 [root] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:53:14 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-24 16:53:14 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-24 16:53:15 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:53:15 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-24 16:53:15 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-24 16:53:15 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-03-24 16:53:15 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bigdb';
+/* 2021-03-24 16:53:26 [root] */ CREATE DATABASE scott;
+/* 2021-03-24 16:53:26 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:53:31 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:53:31 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:53:31 [scott] */ /* 연결됨. 스레드-ID: 29 */
+/* 2021-03-24 16:53:31 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:53:31 [scott] */ SHOW STATUS;
+/* 2021-03-24 16:53:31 [scott] */ SELECT NOW();
+/* 2021-03-24 16:53:31 [scott] */ SHOW VARIABLES;
+/* 2021-03-24 16:53:31 [] */ /* "scott" 세션 시작 */
+/* 2021-03-24 16:53:33 [scott] */ /* 127.0.0.1 의 연결이 2021-03-24 16:53:33 에 종료됨 */
+/* 2021-03-24 16:53:33 [] */ /* "root" 세션 시작 */
+/* 2021-03-24 16:53:35 [root] */ /* 127.0.0.1 의 연결이 2021-03-24 16:53:35 에 종료됨 */
+/* 2021-03-24 16:53:38 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:53:38 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:53:38 [scott] */ /* 연결됨. 스레드-ID: 30 */
+/* 2021-03-24 16:53:38 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:53:38 [scott] */ SHOW STATUS;
+/* 2021-03-24 16:53:38 [scott] */ SELECT NOW();
+/* 2021-03-24 16:53:38 [scott] */ SHOW VARIABLES;
+/* 2021-03-24 16:53:38 [] */ /* "scott" 세션 시작 */
+/* 2021-03-24 16:53:42 [scott] */ USE `scott`;
+/* 2021-03-24 16:53:42 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-24 16:53:42 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-24 16:53:42 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:53:42 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:53:42 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-24 16:53:42 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-24 16:53:44 [scott] */ /* 127.0.0.1 의 연결이 2021-03-24 16:53:44 에 종료됨 */
+/* 2021-03-24 16:53:47 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-03-24 16:53:47 [java] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:53:47 [java] */ /* 연결됨. 스레드-ID: 31 */
+/* 2021-03-24 16:53:47 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:53:47 [java] */ SHOW STATUS;
+/* 2021-03-24 16:53:47 [java] */ SELECT NOW();
+/* 2021-03-24 16:53:47 [java] */ SHOW VARIABLES;
+/* 2021-03-24 16:53:47 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 16:53:48 [java] */ USE `bigdb`;
+/* 2021-03-24 16:53:50 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:53:50 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:53:50 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:53:50 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:53:50 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:53:50 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 16:54:18 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #3 ... */
+/* 2021-03-24 16:54:23 [java] */ -- 사용할 db명시
+USE bigdb;
+/* 2021-03-24 16:54:23 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:54:27 [java] */ -- 테이블 생성
+CREATE TABLE temp (
+	id VARCHAR(20) PRIMARY KEY,
+	NAME VARCHAR(100) NOT NULL
+);
+/* 2021-03-24 16:54:27 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-03-24 16:54:38 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 16:54:39 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 16:54:39 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 16:54:39 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:54:39 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 16:54:39 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 16:54:39 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 16:54:45 [java] */ -- 데이터 삽입
+INSERT INTO temp VALUES('hyun','혀니');
+/* 2021-03-24 16:54:45 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:54:58 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_24_샘플테이블생성.sql" (3.1 KiB) into query tab #2 ... */
+/* 2021-03-24 16:55:09 [java] */ CREATE TABLE DEPT (
+ DEPTNO              INT(2) NOT NULL,
+ DNAME               CHAR(14),
+ LOC                 CHAR(13),
+ CONSTRAINT DEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
+/* 2021-03-24 16:55:09 [java] */ CREATE TABLE EMP (
+ EMPNO               INT(4) NOT NULL,
+ ENAME               VARCHAR(10),
+ JOB                 VARCHAR(9),
+ MGR                 int(4) CONSTRAINT EMP_SELF_KEY REFERENCES EMP (EMPNO),
+ HIREDATE            DATE,
+ SAL                 INT(7),
+ COMM                INT(7),
+ DEPTNO              INT(2) NOT NULL,
+ CONSTRAINT EMP_FOREIGN_KEY FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
+ CONSTRAINT EMP_PRIMARY_KEY PRIMARY KEY (EMPNO));
+/* 2021-03-24 16:55:10 [java] */ CREATE TABLE BONUS (
+ ENAME               CHAR(10),
+ JOB                 CHAR(9),
+ SAL                 INT,
+ COMM                INT);
+/* 2021-03-24 16:55:10 [java] */ CREATE TABLE SALGRADE (
+ GRADE               INT,
+ LOSAL               INT,
+ HISAL               INT);
+/* 2021-03-24 16:55:10 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 2  지속 시간 4 쿼리: 0.187 초 */
+/* 2021-03-24 16:55:10 [java] */ SHOW WARNINGS LIMIT 5;
+/* 2021-03-24 16:55:23 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'ACCOUNTING', 'NEW YORK');
+/* 2021-03-24 16:55:23 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (20, 'RESEARCH', 'DALLAS');
+/* 2021-03-24 16:55:23 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (30, 'SALES', 'CHICAGO');
+/* 2021-03-24 16:55:23 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
+/* 2021-03-24 16:55:23 [java] */ COMMIT;
+/* 2021-03-24 16:55:23 [] */ /* 영향 받은 행: 4  찾은 행: 0  경고: 0  지속 시간 5 쿼리: 0.046 초 */
+/* 2021-03-24 16:55:30 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 쿼리: 0.000 초 */
+/* 2021-03-24 16:55:35 [java] */ -- 문자열 날자 변환 예시
+SELECT STR_TO_DATE('Wednesday, June 2, 2014', '%W, %M %e, %Y');
+/* 2021-03-24 16:55:35 [java] */ SELECT STR_TO_DATE('11-17-1981', '%m-%d-%Y');
+/* 2021-03-24 16:55:36 [] */ /* 영향 받은 행: 0  찾은 행: 2  경고: 0  지속 시간 2 쿼리: 0.000 초 */
+/* 2021-03-24 16:55:40 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (1, 700, 1200);
+/* 2021-03-24 16:55:40 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (2, 1201, 1400);
+/* 2021-03-24 16:55:40 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (3, 1401, 2000);
+/* 2021-03-24 16:55:40 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (4, 2001, 3000);
+/* 2021-03-24 16:55:40 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (5, 3001, 9999);
+/* 2021-03-24 16:55:40 [java] */ COMMIT;
+/* 2021-03-24 16:55:40 [] */ /* 영향 받은 행: 5  찾은 행: 0  경고: 0  지속 시간 6 쿼리: 0.046 초 */
+/* 2021-03-24 16:55:47 [java] */ /* 127.0.0.1 의 연결이 2021-03-24 16:55:47 에 종료됨 */
+/* 2021-03-24 16:55:50 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-24 16:55:50 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-24 16:55:50 [scott] */ /* 연결됨. 스레드-ID: 32 */
+/* 2021-03-24 16:55:50 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 16:55:51 [scott] */ SHOW STATUS;
+/* 2021-03-24 16:55:51 [scott] */ SELECT NOW();
+/* 2021-03-24 16:55:51 [scott] */ SHOW VARIABLES;
+/* 2021-03-24 16:55:51 [scott] */ SHOW OPEN TABLES FROM scott WHERE `in_use`!=0;
+/* 2021-03-24 16:55:51 [scott] */ USE `scott`;
+/* 2021-03-24 16:55:51 [] */ /* "scott" 세션 시작 */
+/* 2021-03-24 16:55:51 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-24 16:55:51 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-24 16:55:51 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:55:51 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:55:51 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-24 16:55:51 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-24 16:57:39 [scott] */ create table dept (
+  deptno   integer(2) primary key, 
+  dname    varchar(14),
+  loc      varchar(20));
+/* 2021-03-24 16:57:39 [scott] */ insert into dept values (10,'대표이사','서울');
+/* 2021-03-24 16:57:40 [scott] */ insert into dept values (20,'기획부','서울');
+/* 2021-03-24 16:57:40 [scott] */ insert into dept values (30,'기술부','서울');
+/* 2021-03-24 16:57:40 [scott] */ insert into dept values (40,'영업부','서울');
+/* 2021-03-24 16:57:40 [scott] */ insert into dept values (50,'운용팀','울산');
+/* 2021-03-24 16:57:40 [] */ /* 영향 받은 행: 5  찾은 행: 0  경고: 0  지속 시간 6 쿼리: 0.063 초 */
+/* 2021-03-24 16:58:05 [scott] */ create table emp ( 
+  empno     integer(4) primary key, 
+  ename     varchar(10), 
+  job       varchar(9), 
+  mgr       integer(4), 
+  birthday  date,
+  hiredate  date, 
+  salary    integer(7),
+  bonus     integer(7), 
+  deptno    integer(2));
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (1000,'이승엽','대표',NULL,'1972-10-01','2012-01-01',1800,500,10);
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (1002,'김유택','이사',1000,'1973-11-10','2013-01-03',1000,300,30);
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (2001,'주승재','차장',1000,'1982-01-12','2012-01-01',900,200,20);
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (2002,'송승환','차장',1000,'1984-02-19','2014-10-01',900,200,40);
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (2003,'주재희','주임',2001,'1983-03-14','2012-10-01',700,100,20);
+/* 2021-03-24 16:58:05 [scott] */ insert into emp values (2004,'이혜라','사원',2002,'1990-04-20','2012-10-01',600,150,40);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2005,'이로운','사원',2001,'1991-05-21','2014-09-01',500,150,20);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2006,'박하연','사원',1000,'1990-06-30','2014-10-01',600,150,50);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2007,'김잔디','사원',2002,'1989-07-11','2015-11-01',550,NULL,40);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2008,'김경빈','과장',1002,'1980-08-23','2016-01-03',650,200,30);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2009,'이영섭','과장',1002,'1982-09-08','2016-01-03',650,200,30);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2010,'강칠성','사원',1002,'1980-10-06','2016-06-01',600,NULL,30);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2011,'김명신','사원',1002,'1972-11-22','2016-06-01',500,NULL,30);
+/* 2021-03-24 16:58:06 [scott] */ insert into emp values (2012,'김민용','사원',2002,'1992-12-16','2014-10-01',550,150,40);
+/* 2021-03-24 16:58:06 [scott] */ create table major
+( code integer(3) primary key , 
+  name varchar(20) not null,
+  part integer(3),
+  build  varchar(14));
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (101,'컴퓨터공학과',100,'정보관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (102,'멀티미디어공학과',100,'멀티미디어관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (103,'소프트웨어공학과',100,'소프트웨어관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (201,'전자공학과',200,'전자제어관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (202,'기계공학과',200,'기계실험관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (301,'문헌정보학과',300,'인문관');
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (100,'컴퓨터정보학부',10,null);
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (200,'전기전자학부',10,null);
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (300,'인문사회학부',20,null);
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (10,'공과대학',null,null);
+/* 2021-03-24 16:58:06 [scott] */ insert into major
+values (20,'인문대학',null,null);
+/* 2021-03-24 16:58:06 [scott] */ commit;
+/* 2021-03-24 16:58:06 [scott] */ create table professor
+(no integer(4) primary key,
+ name  varchar(10) not null, 
+ id  varchar(15) not null,
+ position varchar (10) not null,
+ salary integer(3) not null,
+ hiredate  date not null,
+ bonus integer(4) ,
+ deptno  integer(3),
+ email  varchar(50),
+ url  varchar(50));
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1001,'김유태','kyt','정교수',550,str_to_date('2011-10-01','%Y-%m-%d'),200,101,'kyt@abc.net','http://www.kytpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1002,'김경빈','kkb','정교수',450,str_to_date('2014-01-01','%Y-%m-%d'),100,102,'kkb@abc.net','http://www.kkbpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1003,'이영택','lyt','정교수',400,str_to_date('2014-01-01','%Y-%m-%d'),100,103,'lyt@abc.net','http://www.lytpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1004,'이복영','lby','조교수',350,str_to_date('2016-10-01','%Y-%m-%d'),100,101,'lby@abc.net','http://www.lbypage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1005,'조황섭','chs','조교수',300,str_to_date('2017-03-01','%Y-%m-%d'),100,102,'chs@abc.net','http://www.chspage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1006,'송승환','ssh','조교수',350,str_to_date('2015-03-01','%Y-%m-%d'),100,103,'ssh@abc.net','http://www.sshpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1007,'이상미','lsm','조교수',400,str_to_date('2015-03-01','%Y-%m-%d'),100,201,'lsm@abc.net','http://www.lsmpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1008,'조미영','cmy','조교수',430,str_to_date('2015-03-01','%Y-%m-%d'),100,202,'cmy@abc.net','http://www.cmypage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(1009,'박인숙','pis','조교수',512,str_to_date('2015-03-01','%Y-%m-%d'),100,101,'pis@abc.net','http://www.pispage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(5010,'김옥남','kon','시간강사',280,str_to_date('2015-03-01','%Y-%m-%d'),NULL,102,'kon@abc.net','http://www.konpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(5011,'김현정','khj','시간강사',355,str_to_date('2015-03-01','%Y-%m-%d'),NULL,103,'khj@abc.net','http://www.khjpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(5013,'이명정','lmj','시간강사',200,str_to_date('2015-03-01','%Y-%m-%d'),NULL,301,'lmj@abc.net','http://www.lmjpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(5014,'이정미','ljm','시간강사',250,str_to_date('2015-03-01','%Y-%m-%d'),NULL,201,'ljm@abc.net','http://www.ljmpage.net');
+/* 2021-03-24 16:58:06 [scott] */ insert into professor
+values(5015,'박성신','pss','시간강사',150,str_to_date('2015-03-01','%Y-%m-%d'),NULL,202,'pss@abc.net','http://www.psspage.net');
+/* 2021-03-24 16:58:06 [] */ /* 영향 받은 행: 39  찾은 행: 0  경고: 0  지속 시간 43 쿼리: 0.298 초 */
+/* 2021-03-24 16:58:38 [scott] */ create table student
+( studno integer(4) primary key,
+  name   varchar(10) not null,
+  id varchar(20) not null unique,
+  grade integer check(grade between 1 and 6),
+  jumin char(13) not null,
+  birthday  date,
+  tel varchar(15),
+  height  integer(4),
+  weight  integer(3),
+  major1 integer(3),
+  major2 integer(3),
+  profno  integer(4));
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+980111,'강진','kangjin2702',1,'9802231234567',str_to_date('1998-02-23','%Y-%m-%d'),'055)333-1234',183,71,101,null,null);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+980212,'곽종인','kwakjong',1,'9808021234567',str_to_date('1998-08-02','%Y-%m-%d'),'051)426-2345',178,65,102,null,null);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+980313,'박동인','kimdongin',1,'9810021234567',str_to_date('1998-10-02','%Y-%m-%d'),'053)566-3456',173,75,103,null,null);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+981113,'최정현','kimjunghyun',1,'9902082234567',str_to_date('1998-02-08','%Y-%m-%d'),'02)6122-4567',170,80,201,null,null);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+981213,'장영','kimyoung',1,'9812081234567',str_to_date('1998-12-08','%Y-%m-%d'),'031)122-5678',183,95,202,null,null);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+970111,'진영훈','kimyounghun',2,'9705231234567',str_to_date('1997-05-23','%Y-%m-%d'),'02)1220-6789',173,65,101,null,1001);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+970212,'이용','kimyong',2,'9712131234567',str_to_date('1997-12-13','%Y-%m-%d'),'055)222-6789',175,67,102,null,1002);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+970313,'김종연','kimyongyoun',2,'9711031234567',str_to_date('1997-11-03','%Y-%m-%d'),'051)356-9876',175,67,103,null,1003);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+971115,'하진석','hajinsuk',2,'9711031234567',str_to_date('1997-11-03','%Y-%m-%d'),'02)2212-6547',170,67,201,null,1007);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+971211,'유진성','youjinsung',2,'9703031234567',str_to_date('1997-03-03','%Y-%m-%d'),'031)567-5475',170,67,202,null,1008);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+960111,'이충연','leechungyun',3,'9603031234567',str_to_date('1996-03-03','%Y-%m-%d'),'032)3256-5445',169,67,101,301,1009);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+960212,'김태훈','kimtaehoon',3,'9603301234567',str_to_date('1996-03-30','%Y-%m-%d'),'02)5487-2345',189,63,102,null,1005);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+960315,'이철이','leechulri',3,'9612301234567',str_to_date('1996-12-30','%Y-%m-%d'),'02)2547-2345',180,67,103,null,1006);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+961115,'이여은','leeyueun',3,'9602252234567',str_to_date('1996-02-25','%Y-%m-%d'),'032)548-1445',159,48,201,103,1007);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+961215,'박재원','parkjewon',3,'9610271234567',str_to_date('1996-10-27','%Y-%m-%d'),'032)2582-9345',169,58,202,null,1008);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+950115,'이준희','leejunhee',4,'9410202234567',str_to_date('1994-10-20','%Y-%m-%d'),'02)2254-2645',163,59,101,null,1001);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+950211,'김희도','kimheedo',4,'9501201234567',str_to_date('1995-01-20','%Y-%m-%d'),'053)622-2459',173,69,102,null,1002);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+950315,'박동익','parkdongik',4,'9505211234567',str_to_date('1995-05-21','%Y-%m-%d'),'02)2152-2453',183,79,103,301,1003);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+951115,'장성태','jangsungtae',4,'9507211234567',str_to_date('1995-07-21','%Y-%m-%d'),'055)629-2475',178,73,201,301,1007);
+/* 2021-03-24 16:58:38 [scott] */ insert into student values (
+951215,'하정환','hajunghwan',4,'9508271234567',str_to_date('1995-08-27','%Y-%m-%d'),'02)6122-2554',176,71,202,101,1008);
+/* 2021-03-24 16:58:38 [scott] */ commit;
+/* 2021-03-24 16:58:38 [scott] */ create table pointitem 
+( no  integer(3) ,
+  name varchar(15) ,
+  spoint  integer(8) ,
+  epoint  integer(8) );
+/* 2021-03-24 16:58:38 [scott] */ insert into pointitem values(1,'데이터케이블',100,1000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(2,'가정용충전기',1001,2000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(3,'이어폰',2001,3000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(4,'프린트잉크',3001,4000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(5,'무선마우스',4001,5000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(6,'무선키보드',5001,6000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(7,'외장충전기',6001,7000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(8,'외장하드',7001,8000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(9,'프린트',8001,9000);
+/* 2021-03-24 16:58:39 [scott] */ insert into pointitem values(10,'모니터',9001,10000);
+/* 2021-03-24 16:58:39 [scott] */ commit ;
+/* 2021-03-24 16:58:39 [scott] */ create table guest 
+(no  integer(8) primary key,
+ name varchar(12) ,
+ point integer) ;
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170001,'강동균',980);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170002,'성건민',730);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170003,'이용주',320);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170004,'김수영',6500);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170005,'남소희',1800);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170006,'김윤영',1530);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170007,'신은지',273);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170008,'오민수',3150);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170009,'박준희',5420);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170010,'임현식',2650);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170011,'최규민',1100);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170012,'박정현',9900);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170013,'안훈',4700);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170014,'김병민',2900);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170015,'노인우',4200);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170016,'이나진',5980);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170017,'박수진',6250);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170018,'송민지',6700);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170019,'주영인',7700);
+/* 2021-03-24 16:58:39 [scott] */ insert into guest values (20170020,'허용진',7300);
+/* 2021-03-24 16:58:39 [scott] */ commit ;
+/* 2021-03-24 16:58:39 [] */ /* 영향 받은 행: 50  찾은 행: 0  경고: 0  지속 시간 56 쿼리: 0.311 초 */
+/* 2021-03-24 16:59:05 [scott] */ create table scorebase
+(grade char(3) ,
+ min_point  integer ,
+ max_point  integer );
+/* 2021-03-24 16:59:05 [scott] */ insert into scorebase values ('a+',96,100);
+/* 2021-03-24 16:59:05 [scott] */ insert into scorebase values ('a0',90,95);
+/* 2021-03-24 16:59:05 [scott] */ insert into scorebase values ('b+',86,89);
+/* 2021-03-24 16:59:05 [scott] */ insert into scorebase values ('b0',80,85);
+/* 2021-03-24 16:59:06 [scott] */ insert into scorebase values ('c+',76,79);
+/* 2021-03-24 16:59:06 [scott] */ insert into scorebase values ('c0',70,75);
+/* 2021-03-24 16:59:06 [scott] */ insert into scorebase values ('d',0,69);
+/* 2021-03-24 16:59:06 [scott] */ commit;
+/* 2021-03-24 16:59:06 [scott] */ create table p_grade
+( position  varchar(10) ,
+  s_age integer,
+  e_age int ,
+  s_year int ,
+  e_year int ,
+  s_pay  int ,
+  e_pay  int );
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('주임',0,24,1,2,12000000,29990000);
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('대리',25,28,3,5,30000000,45000000);
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('과장',29,32,6,8,45010000,51000000);
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('차장',33,36,9,10,51010000,60000000);
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('부장',37,40,11,13,60010000,75000000);
+/* 2021-03-24 16:59:06 [scott] */ insert into p_grade values ('이사',41,55,14,99,75010000,100000000);
+/* 2021-03-24 16:59:06 [scott] */ commit ;
+/* 2021-03-24 16:59:06 [scott] */ create table score (
+  studno integer(4) primary key,
+  kor int,
+  math int,
+  eng int
+);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (980111,65,75,76);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (980212,75,65,87);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (980313,85,95,78);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (981113,65,75,87);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (981213,95,95,97);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (970111,66,55,70);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (970212,75,100,90);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (970313,80,55,80);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (971115,58,56,88);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (971211,67,87,86);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (960111,70,65,75);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (960212,90,85,84);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (960315,87,95,82);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (961115,78,69,65);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (961215,88,59,58);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (950115,99,89,88);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (950211,76,68,90);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (950315,75,87,70);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (951115,80,78,97);
+/* 2021-03-24 16:59:06 [scott] */ insert into score values (951215,76,85,100);
+/* 2021-03-24 16:59:06 [scott] */ commit;
+/* 2021-03-24 16:59:06 [] */ /* 영향 받은 행: 33  찾은 행: 0  경고: 0  지속 시간 39 쿼리: 0.187 초 */
+/* 2021-03-24 16:59:27 [] */ /* "scott" 세션 시작 */
+/* 2021-03-24 16:59:29 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-24 16:59:29 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-24 16:59:29 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:59:29 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-24 16:59:29 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-24 16:59:29 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-24 17:00:21 [scott] */ -- desc 명령어 : 특정한 테이블의구조 조회
+DESC emp;
+/* 2021-03-24 17:00:21 [] */ /* 영향 받은 행: 0  찾은 행: 9  경고: 0  지속 시간 1 쿼리: 0.047 초 */
+/* 2021-03-24 17:00:58 [scott] */ SELECT * FROM emp;
+/* 2021-03-24 17:00:58 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:02:09 [scott] */ SELECT empno,ename,deptno
+FROM emp;
+/* 2021-03-24 17:02:09 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:03:02 [scott] */ SELECT empno,ename, 'Very Good~' FROM emp;
+/* 2021-03-24 17:03:02 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:03:47 [scott] */ SELECT empno,ename 
+FROM emp;
+/* 2021-03-24 17:03:47 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:04:24 [scott] */ SELECT '사번',empno,'이름',ename 
+FROM emp;
+/* 2021-03-24 17:04:24 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:05:24 [scott] */ SELECT '교수번호', NO,'교수이름',name
+FROM professor;
+/* 2021-03-24 17:05:24 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:07:07 [scott] */ SELECT NO 교수번호, NAME 교수이름 
+FROM professor;
+/* 2021-03-24 17:07:07 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:08:39 [scott] */ SELECT NO "교수 번호", NAME "교수 이름"
+FROM professor;
+/* 2021-03-24 17:08:39 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:09:10 [scott] */ SELECT NO AS "교수 번호", NAME AS"교수 이름"
+FROM professor;
+/* 2021-03-24 17:09:10 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:10:31 [scott] */ -- desc 명령어 : 특정한 테이블의구조 조회
+DESC emp;
+/* 2021-03-24 17:10:31 [scott] */ -- select 명령어
+-- 모든 컬럼과 모든 레코드 조회
+SELECT * FROM emp;
+/* 2021-03-24 17:10:31 [scott] */ -- emp 테이블의 모든 레코드의 empno,ename,deptno컬럼조회
+SELECT empno,ename,deptno
+FROM emp;
+/* 2021-03-24 17:10:31 [scott] */ -- 컬럼에 리터널 문자 사용
+SELECT empno,ename, 'Very Good~' FROM emp;
+/* 2021-03-24 17:10:31 [scott] */ -- 문제1) emp테이블의 모든 레코드의 empno,ename컬럼 출력 select구문작성
+SELECT '사번',empno,'이름',ename 
+FROM emp;
+/* 2021-03-24 17:10:31 [scott] */ -- 문제2) 교수 테이블, 모든 레코드의 교수이름,교수번호 컬럼 조회
+SELECT '교수번호', NO,'교수이름',name
+FROM professor;
+/* 2021-03-24 17:10:31 [scott] */ -- 컬럼에 별명(alias) 넣기
+-- 교수테이블의 no컬럼 :교수번호,name 컬럼 : 교수이름 으로 변경하여 출력
+SELECT NO 교수번호, NAME 교수이름 
+FROM professor;
+/* 2021-03-24 17:10:31 [scott] */ -- 공백을 넣을경우 별명을 ""로 묶어서 작성
+SELECT NO "교수 번호", NAME "교수 이름"
+FROM professor;
+/* 2021-03-24 17:10:32 [scott] */ -- as 예약어 사용
+SELECT NO AS "교수 번호", NAME AS"교수 이름"
+FROM professor;
+/* 2021-03-24 17:10:32 [scott] */ -- 컬럼에 연산자 사용
+-- 산술 연산자 사용
+-- 사원 급여를 10%씩 일괄 인상하였을 때의 예상 급여 조회
+SELECT ename 이름, salary 현재급여,salary * 1.1 인상예상급여
+FROM emp;
+/* 2021-03-24 17:10:32 [] */ /* 영향 받은 행: 0  찾은 행: 135  경고: 0  지속 시간 10 쿼리: 0.047 초 */
+/* 2021-03-24 17:10:35 [scott] */ SELECT ename 이름, salary 현재급여,salary * 1.1 인상예상급여
+FROM emp;
+/* 2021-03-24 17:10:35 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:11:47 [scott] */ SELECT DISTINCT deptno FROM professor;
+/* 2021-03-24 17:11:47 [] */ /* 영향 받은 행: 0  찾은 행: 6  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:12:23 [scott] */ SHOW FULL COLUMNS FROM `scott`.`professor`;
+/* 2021-03-24 17:12:23 [scott] */ SHOW INDEXES FROM `professor` FROM `scott`;
+/* 2021-03-24 17:12:24 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='professor'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:12:24 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='professor'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:12:24 [scott] */ SHOW ENGINES;
+/* 2021-03-24 17:12:24 [scott] */ SHOW COLLATION;
+/* 2021-03-24 17:12:24 [scott] */ SHOW CREATE TABLE `scott`.`professor`;
+/* 2021-03-24 17:13:09 [scott] */ SELECT DISTINCT position,deptno 
+FROM professor;
+/* 2021-03-24 17:13:09 [] */ /* 영향 받은 행: 0  찾은 행: 13  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:14:09 [scott] */ SELECT * FROM student WHERE grade =1;
+/* 2021-03-24 17:14:09 [] */ /* 영향 받은 행: 0  찾은 행: 5  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:15:06 [scott] */ SELECT ename,salary,deptno
+FROM emp
+WHERE deptno = 10;
+/* 2021-03-24 17:15:06 [] */ /* 영향 받은 행: 0  찾은 행: 1  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:15:50 [scott] */ SELECT ename, salary
+FROM emp
+WHERE salary>800;
+/* 2021-03-24 17:15:50 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:18:29 [scott] */ SELECT * FROM `scott`.`professor` LIMIT 1000;
+/* 2021-03-24 17:18:31 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `name` ASC LIMIT 1000;
+/* 2021-03-24 17:18:32 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `name` ASC, `position` ASC LIMIT 1000;
+/* 2021-03-24 17:18:42 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `name` DESC, `position` ASC LIMIT 1000;
+/* 2021-03-24 17:18:43 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `position` ASC LIMIT 1000;
+/* 2021-03-24 17:18:46 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `position` ASC, `name` ASC LIMIT 1000;
+/* 2021-03-24 17:19:14 [scott] */ SELECT NAME,deptno,POSITION
+FROM professor
+WHERE POSITION='정교수';
+/* 2021-03-24 17:19:14 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:34:21 [scott] */ SHOW FULL COLUMNS FROM `scott`.`emp`;
+/* 2021-03-24 17:34:21 [scott] */ SHOW INDEXES FROM `emp` FROM `scott`;
+/* 2021-03-24 17:34:21 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:34:21 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:34:21 [scott] */ SHOW CREATE TABLE `scott`.`emp`;
+/* 2021-03-24 17:34:23 [scott] */ SELECT * FROM `scott`.`emp` LIMIT 1000;
+/* 2021-03-24 17:36:24 [scott] */ SELECT ename 이름 , salary 현재급여, salary * 1.1 예상인상급여
+FROM emp
+WHERE salary * 1.1 < 1000;
+/* 2021-03-24 17:36:24 [] */ /* 영향 받은 행: 0  찾은 행: 12  경고: 0  지속 시간 1 쿼리: 0.016 초 */
+/* 2021-03-24 17:39:19 [scott] */ SELECT ename 이름, salary 현재급여, salary *1.05 예상인상급여, deptno
+FROM emp
+WHERE salary < 700;
+/* 2021-03-24 17:39:19 [] */ /* 영향 받은 행: 0  찾은 행: 9  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:39:36 [scott] */ SELECT ename 이름, salary 현재급여, salary *1.05 예상인상급여, deptno
+FROM emp
+WHERE salary <= 700;
+/* 2021-03-24 17:39:36 [] */ /* 영향 받은 행: 0  찾은 행: 10  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:42:54 [scott] */ SELECT NAME,major1,birthday,grade
+FROM student
+WHERE birthday >1998-06-30;
+/* 2021-03-24 17:42:54 [] */ /* 영향 받은 행: 0  찾은 행: 20  경고: 0  지속 시간 1 쿼리: 0.015 초 */
+/* 2021-03-24 17:43:23 [scott] */ SELECT NAME,major1,birthday,grade
+FROM student
+WHERE birthday <1998-06-30;
+/* 2021-03-24 17:43:23 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:43:36 [scott] */ SELECT NAME,major1,birthday,grade
+FROM student
+WHERE birthday>=1998-06-30;
+/* 2021-03-24 17:43:36 [] */ /* 영향 받은 행: 0  찾은 행: 20  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:43:47 [scott] */ SELECT NAME,major1,birthday,grade
+FROM student
+WHERE birthday>='1998-06-30';
+/* 2021-03-24 17:43:47 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:46:02 [scott] */ SELECT NAME,weight
+FROM student
+WHERE weigth BETWEEN 70 AND 80 AND grade=1;
+/* 2021-03-24 17:46:02 [scott] */ /* SQL 오류 (1054): Unknown column 'weigth' in 'where clause' */
+/* 2021-03-24 17:46:02 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:46:24 [scott] */ SELECT NAME,weight
+FROM student
+WHERE weight BETWEEN 70 AND 80 
+AND grade=1;
+/* 2021-03-24 17:46:24 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:51:45 [scott] */ SELECT NAME, weight, major1
+FROM student
+WHERE weight BETWEEN 50 AND 80 
+AND major1=101;
+/* 2021-03-24 17:51:45 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:54:50 [scott] */ SELECT NAME,major1,grade
+FROM student
+WHERE major IN(101,201);
+/* 2021-03-24 17:54:50 [scott] */ /* SQL 오류 (1054): Unknown column 'major' in 'where clause' */
+/* 2021-03-24 17:54:50 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:55:29 [scott] */ SELECT NAME,major1,grade
+FROM student
+WHERE major1 IN(101,201);
+/* 2021-03-24 17:55:29 [] */ /* 영향 받은 행: 0  찾은 행: 8  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:58:18 [scott] */ SELECT studno,NAME,weight,height,major1
+FROM student
+WHERE height >=170 AND major1 IN(101,201);
+/* 2021-03-24 17:58:18 [] */ /* 영향 받은 행: 0  찾은 행: 5  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 17:58:30 [scott] */ SHOW FULL COLUMNS FROM `scott`.`student`;
+/* 2021-03-24 17:58:30 [scott] */ SHOW INDEXES FROM `student` FROM `scott`;
+/* 2021-03-24 17:58:30 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='student'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:58:30 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='student'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 17:59:39 [scott] */ SELECT NAME, major1
+FROM student
+WHERE NAME LIKE '김%';
+/* 2021-03-24 17:59:39 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:00:40 [scott] */ SELECT NAME,grade,major1
+FROM student
+WHERE NAME LIKE '%진%';
+/* 2021-03-24 18:00:40 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:02:09 [scott] */ SELECT NAME,grade,major1
+FROM student
+WHERE NAME LIKE'__';
+/* 2021-03-24 18:02:09 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:03:18 [scott] */ SELECT studno,NAME,major1
+FROM studen
+WHERE NAME LIKE '%훈';
+/* 2021-03-24 18:03:18 [scott] */ /* SQL 오류 (1146): Table 'scott.studen' doesn't exist */
+/* 2021-03-24 18:03:18 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:03:23 [scott] */ SELECT studno,NAME,major1
+FROM student
+WHERE NAME LIKE '%훈';
+/* 2021-03-24 18:03:23 [] */ /* 영향 받은 행: 0  찾은 행: 2  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:04:12 [scott] */ SELECT NAME,studno,tel
+FROM student
+WHERE tel LIKE 02%;
+/* 2021-03-24 18:04:12 [scott] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 3 */
+/* 2021-03-24 18:04:12 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:04:26 [scott] */ SELECT NAME,studno,tel
+FROM student
+WHERE tel LIKE '02%';
+/* 2021-03-24 18:04:26 [] */ /* 영향 받은 행: 0  찾은 행: 8  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:05:48 [scott] */ SELECT studno,NAME,major1
+FROM student
+WHERE NAME NOT LIKE '이%';
+/* 2021-03-24 18:05:48 [] */ /* 영향 받은 행: 0  찾은 행: 15  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:07:06 [scott] */ SELECT empno,ename,salary,bonus
+FROM emp
+WHERE bonus IS NULL;
+/* 2021-03-24 18:07:06 [] */ /* 영향 받은 행: 0  찾은 행: 3  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:07:39 [scott] */ SELECT empno,ename,salary,bonus
+FROM emp
+WHERE bonus IS not NULL;
+/* 2021-03-24 18:07:39 [] */ /* 영향 받은 행: 0  찾은 행: 11  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:09:25 [scott] */ SELECT NAME,salay,bonus,연봉 salary*12+bonus
+FROM professor;
+/* 2021-03-24 18:09:25 [scott] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*12+bonus
+FROM professor' at line 1 */
+/* 2021-03-24 18:09:25 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:09:36 [scott] */ SELECT NAME,salay,bonus,salary*12+bonus 연봉
+FROM professor;
+/* 2021-03-24 18:09:36 [scott] */ /* SQL 오류 (1054): Unknown column 'salay' in 'field list' */
+/* 2021-03-24 18:09:36 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:09:52 [scott] */ SELECT NAME,salary,bonus,salary*12+bonus 연봉
+FROM professor;
+/* 2021-03-24 18:09:52 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:10:40 [scott] */ SELECT NAME,salary,bonus,salary*12+bonus 연봉
+FROM professor
+WHERE bonus IS NOT NULL;
+/* 2021-03-24 18:10:40 [] */ /* 영향 받은 행: 0  찾은 행: 9  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:12:47 [scott] */ SELECT NAME,id,POSITION
+FROM professor
+wherre id LIKE '%k%';
+/* 2021-03-24 18:12:47 [scott] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'id LIKE '%k%'' at line 3 */
+/* 2021-03-24 18:12:47 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:12:56 [scott] */ SELECT NAME,id,POSITION
+FROM professor
+where id LIKE '%k%';
+/* 2021-03-24 18:12:57 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:13:08 [scott] */ SELECT NAME,id,POSITION
+FROM professor
+where id LIKE '%K%';
+/* 2021-03-24 18:13:08 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:14:07 [scott] */ SELECT NAME,id,POSITION
+FROM professor
+where id LIKE BINARY'%K%';
+/* 2021-03-24 18:14:07 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.015 초 */
+/* 2021-03-24 18:14:12 [scott] */ SELECT NAME,id,POSITION
+FROM professor
+where id LIKE BINARY'%k%';
+/* 2021-03-24 18:14:12 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 18:14:28 [scott] */ SHOW CREATE TABLE `scott`.`professor`;
+/* 2021-03-24 18:14:29 [scott] */

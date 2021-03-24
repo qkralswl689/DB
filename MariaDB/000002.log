@@ -1,0 +1,256 @@
+/* 2021-03-24 14:58:34 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-03-24 14:58:34 [java] */ SELECT CONNECTION_ID();
+/* 2021-03-24 14:58:34 [java] */ /* 연결됨. 스레드-ID: 6 */
+/* 2021-03-24 14:58:34 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-24 14:58:34 [java] */ SHOW STATUS;
+/* 2021-03-24 14:58:34 [java] */ SELECT NOW();
+/* 2021-03-24 14:58:34 [java] */ SHOW VARIABLES;
+/* 2021-03-24 14:58:34 [java] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-03-24 14:58:34 [java] */ USE `bigdb`;
+/* 2021-03-24 14:58:34 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 14:58:34 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 14:58:34 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 14:58:34 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 14:58:34 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 14:58:34 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 14:58:34 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 14:58:35 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-24 15:00:08 [java] */ CREATE TABLE DEPT (
+ DEPTNO              INT(2) NOT NULL,
+ DNAME               CHAR(14),
+ LOC                 CHAR(13),
+ CONSTRAINT DEPT_PRIMARY_KEY PRIMARY KEY (DEPTNO));
+/* 2021-03-24 15:00:08 [java] */ CREATE TABLE EMP (
+ EMPNO               INT(4) NOT NULL,
+ ENAME               VARCHAR(10),
+ JOB                 VARCHAR(9),
+ MGR                 int(4) CONSTRAINT EMP_SELF_KEY REFERENCES EMP (EMPNO),
+ HIREDATE            DATE,
+ SAL                 INT(7),
+ COMM                INT(7),
+ DEPTNO              INT(2) NOT NULL,
+ CONSTRAINT EMP_FOREIGN_KEY FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
+ CONSTRAINT EMP_PRIMARY_KEY PRIMARY KEY (EMPNO));
+/* 2021-03-24 15:00:08 [java] */ CREATE TABLE BONUS (
+ ENAME               CHAR(10),
+ JOB                 CHAR(9),
+ SAL                 INT,
+ COMM                INT);
+/* 2021-03-24 15:00:08 [java] */ CREATE TABLE SALGRADE (
+ GRADE               INT,
+ LOSAL               INT,
+ HISAL               INT);
+/* 2021-03-24 15:00:08 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 2  지속 시간 4 쿼리: 0.124 초 */
+/* 2021-03-24 15:00:09 [java] */ SHOW WARNINGS LIMIT 5;
+/* 2021-03-24 15:00:32 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`temp`;
+/* 2021-03-24 15:00:32 [java] */ SHOW INDEXES FROM `temp` FROM `bigdb`;
+/* 2021-03-24 15:00:32 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:32 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:32 [java] */ SHOW ENGINES;
+/* 2021-03-24 15:00:32 [java] */ SHOW COLLATION;
+/* 2021-03-24 15:00:32 [java] */ SHOW CREATE TABLE `bigdb`.`temp`;
+/* 2021-03-24 15:00:36 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 15:00:37 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 15:00:37 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 15:00:37 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 15:00:37 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 15:00:37 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 15:00:37 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 15:00:39 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`emp`;
+/* 2021-03-24 15:00:39 [java] */ SHOW INDEXES FROM `emp` FROM `bigdb`;
+/* 2021-03-24 15:00:39 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:39 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:39 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:00:40 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`salgrade`;
+/* 2021-03-24 15:00:40 [java] */ SHOW INDEXES FROM `salgrade` FROM `bigdb`;
+/* 2021-03-24 15:00:40 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:40 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:40 [java] */ SHOW CREATE TABLE `bigdb`.`salgrade`;
+/* 2021-03-24 15:00:42 [java] */ SELECT * FROM `bigdb`.`salgrade` LIMIT 1000;
+/* 2021-03-24 15:00:44 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`temp`;
+/* 2021-03-24 15:00:44 [java] */ SHOW INDEXES FROM `temp` FROM `bigdb`;
+/* 2021-03-24 15:00:44 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:44 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:44 [java] */ SHOW CREATE TABLE `bigdb`.`temp`;
+/* 2021-03-24 15:00:44 [java] */ SELECT * FROM `bigdb`.`temp` LIMIT 1000;
+/* 2021-03-24 15:00:46 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:00:46 [java] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 15:00:47 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`dept`;
+/* 2021-03-24 15:00:47 [java] */ SHOW INDEXES FROM `dept` FROM `bigdb`;
+/* 2021-03-24 15:00:47 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:47 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:47 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 15:00:47 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 15:00:48 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`bonus`;
+/* 2021-03-24 15:00:48 [java] */ SHOW INDEXES FROM `bonus` FROM `bigdb`;
+/* 2021-03-24 15:00:48 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:48 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:00:48 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 15:00:48 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 15:01:29 [java] */ INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,STR_TO_DATE('11-17-1981','%m-%d-%Y'), 5000,NULL,10);
+/* 2021-03-24 15:01:29 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)) */
+/* 2021-03-24 15:01:31 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 28 쿼리: 0.000 초 */
+/* 2021-03-24 15:01:37 [java] */ INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,STR_TO_DATE('11-17-1981','%m-%d-%Y'), 5000,NULL,10);
+/* 2021-03-24 15:01:37 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)) */
+/* 2021-03-24 15:01:39 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 15 쿼리: 0.000 초 */
+/* 2021-03-24 15:01:46 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 15:01:49 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 15:02:36 [] */ /* "java" 세션 시작 */
+/* 2021-03-24 15:02:38 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-24 15:02:38 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-24 15:02:38 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 15:02:38 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-24 15:02:38 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-24 15:02:38 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-24 15:02:39 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`dept`;
+/* 2021-03-24 15:02:39 [java] */ SHOW INDEXES FROM `dept` FROM `bigdb`;
+/* 2021-03-24 15:02:39 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:39 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:39 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 15:02:39 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`emp`;
+/* 2021-03-24 15:02:40 [java] */ SHOW INDEXES FROM `emp` FROM `bigdb`;
+/* 2021-03-24 15:02:40 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:40 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:40 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:02:43 [java] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 15:02:46 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 15:02:46 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 15:02:46 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`bonus`;
+/* 2021-03-24 15:02:47 [java] */ SHOW INDEXES FROM `bonus` FROM `bigdb`;
+/* 2021-03-24 15:02:47 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:47 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:47 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 15:02:47 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 15:02:48 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`salgrade`;
+/* 2021-03-24 15:02:48 [java] */ SHOW INDEXES FROM `salgrade` FROM `bigdb`;
+/* 2021-03-24 15:02:48 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:48 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:48 [java] */ SHOW CREATE TABLE `bigdb`.`salgrade`;
+/* 2021-03-24 15:02:48 [java] */ SELECT * FROM `bigdb`.`salgrade` LIMIT 1000;
+/* 2021-03-24 15:02:48 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`temp`;
+/* 2021-03-24 15:02:48 [java] */ SHOW INDEXES FROM `temp` FROM `bigdb`;
+/* 2021-03-24 15:02:48 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:48 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='temp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-24 15:02:49 [java] */ SHOW CREATE TABLE `bigdb`.`temp`;
+/* 2021-03-24 15:02:49 [java] */ SELECT * FROM `bigdb`.`temp` LIMIT 1000;
+/* 2021-03-24 15:02:50 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:02:50 [java] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 15:02:52 [java] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,STR_TO_DATE('11-17-1981','%m-%d-%Y'), 5000,NULL,10);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_FOREIGN_KEY` FOREIGN KEY (`DEPTNO`) REFERENCES `dept` (`DEPTNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,STR_TO_DATE('05-01-1981','%m-%d-%Y'),2850,NULL,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,STR_TO_DATE('01-09-1981','%m-%d-%Y'),2450,NULL,10);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,STR_TO_DATE('04-02-1981','%m-%d-%Y'),2975,NULL,20);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,STR_TO_DATE('09-28-1981','%m-%d-%Y'),1250,1400,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,STR_TO_DATE('02-20-1981','%m-%d-%Y'),1600,300,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,STR_TO_DATE('09-08-1981','%m-%d-%Y'),1500,0,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,STR_TO_DATE('12-03-1981','%m-%d-%Y'),950,NULL,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,STR_TO_DATE('02-22-1981','%m-%d-%Y'),1250,500,30);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,STR_TO_DATE('12-03-1981','%m-%d-%Y'),3000,NULL,20);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:49 [java] */ INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,STR_TO_DATE('12-17-1980','%m-%d-%Y'),800,NULL,20);
+/* 2021-03-24 15:05:49 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:50 [java] */ INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,STR_TO_DATE('12-09-1982','%m-%d-%Y'),3000,NULL,20);
+/* 2021-03-24 15:05:50 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:50 [java] */ INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,STR_TO_DATE('01-12-1983','%m-%d-%Y'),1100,NULL,20);
+/* 2021-03-24 15:05:50 [java] */ /* SQL 오류 (1452): Cannot add or update a child row: a foreign key constraint fails (`bigdb`.`emp`, CONSTRAINT `EMP_SELF_KEY` FOREIGN KEY (`MGR`) REFERENCES `emp` (`EMPNO`)) */
+/* 2021-03-24 15:05:56 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 14 쿼리: 0.000 초 */
+/* 2021-03-24 15:06:43 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-24 15:06:45 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` DESC LIMIT 1000;
+/* 2021-03-24 15:06:46 [java] */ SELECT * FROM `bigdb`.`emp` LIMIT 1000;
+/* 2021-03-24 15:06:47 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-24 15:07:38 [java] */ CREATE TABLE EMP (
+ EMPNO               INT(4) NOT NULL,
+ ENAME               VARCHAR(10),
+ JOB                 VARCHAR(9),
+ MGR                 int(4) CONSTRAINT EMP_SELF_KEY REFERENCES EMP (EMPNO),
+ HIREDATE            DATE,
+ SAL                 INT(7),
+ COMM                INT(7),
+ DEPTNO              INT(2) NOT NULL,
+ CONSTRAINT EMP_FOREIGN_KEY FOREIGN KEY (DEPTNO) REFERENCES DEPT (DEPTNO),
+ CONSTRAINT EMP_PRIMARY_KEY PRIMARY KEY (EMPNO));
+/* 2021-03-24 15:07:38 [java] */ /* SQL 오류 (1050): Table 'emp' already exists */
+/* 2021-03-24 15:07:38 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-03-24 15:07:57 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 15:08:01 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 15:08:17 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (10, 'ACCOUNTING', 'NEW YORK');
+/* 2021-03-24 15:08:17 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (20, 'RESEARCH', 'DALLAS');
+/* 2021-03-24 15:08:17 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (30, 'SALES', 'CHICAGO');
+/* 2021-03-24 15:08:17 [java] */ INSERT INTO DEPT (DEPTNO, DNAME, LOC) VALUES (40, 'OPERATIONS', 'BOSTON');
+/* 2021-03-24 15:08:17 [] */ /* 영향 받은 행: 4  찾은 행: 0  경고: 0  지속 시간 4 쿼리: 0.016 초 */
+/* 2021-03-24 15:09:07 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7839,'KING','PRESIDENT',NULL,STR_TO_DATE('11-17-1981','%m-%d-%Y'), 5000,NULL,10);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7698,'BLAKE','MANAGER',7839,STR_TO_DATE('05-01-1981','%m-%d-%Y'),2850,NULL,30);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7782,'CLARK','MANAGER',7839,STR_TO_DATE('01-09-1981','%m-%d-%Y'),2450,NULL,10);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7566,'JONES','MANAGER',7839,STR_TO_DATE('04-02-1981','%m-%d-%Y'),2975,NULL,20);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7654,'MARTIN','SALESMAN',7698,STR_TO_DATE('09-28-1981','%m-%d-%Y'),1250,1400,30);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7499,'ALLEN','SALESMAN',7698,STR_TO_DATE('02-20-1981','%m-%d-%Y'),1600,300,30);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7844,'TURNER','SALESMAN',7698,STR_TO_DATE('09-08-1981','%m-%d-%Y'),1500,0,30);
+/* 2021-03-24 15:09:26 [java] */ INSERT INTO EMP VALUES (7900,'JAMES','CLERK',7698,STR_TO_DATE('12-03-1981','%m-%d-%Y'),950,NULL,30);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7521,'WARD','SALESMAN',7698,STR_TO_DATE('02-22-1981','%m-%d-%Y'),1250,500,30);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7902,'FORD','ANALYST',7566,STR_TO_DATE('12-03-1981','%m-%d-%Y'),3000,NULL,20);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7369,'SMITH','CLERK',7902,STR_TO_DATE('12-17-1980','%m-%d-%Y'),800,NULL,20);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7788,'SCOTT','ANALYST',7566,STR_TO_DATE('12-09-1982','%m-%d-%Y'),3000,NULL,20);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7876,'ADAMS','CLERK',7788,STR_TO_DATE('01-12-1983','%m-%d-%Y'),1100,NULL,20);
+/* 2021-03-24 15:09:27 [java] */ INSERT INTO EMP VALUES (7934,'MILLER','CLERK',7782,STR_TO_DATE('01-23-1982','%m-%d-%Y'),1300,NULL,10);
+/* 2021-03-24 15:09:27 [java] */ COMMIT;
+/* 2021-03-24 15:09:27 [] */ /* 영향 받은 행: 14  찾은 행: 0  경고: 0  지속 시간 15 쿼리: 0.078 초 */
+/* 2021-03-24 15:09:33 [java] */ -- 문자열 날자 변환 예시
+SELECT STR_TO_DATE('Wednesday, June 2, 2014', '%W, %M %e, %Y');
+/* 2021-03-24 15:09:33 [java] */ SELECT STR_TO_DATE('11-17-1981', '%m-%d-%Y');
+/* 2021-03-24 15:09:33 [] */ /* 영향 받은 행: 0  찾은 행: 2  경고: 0  지속 시간 2 쿼리: 0.000 초 */
+/* 2021-03-24 15:09:39 [java] */ COMMIT;
+/* 2021-03-24 15:09:39 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.016 초 */
+/* 2021-03-24 15:09:45 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (1, 700, 1200);
+/* 2021-03-24 15:09:45 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (2, 1201, 1400);
+/* 2021-03-24 15:09:45 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (3, 1401, 2000);
+/* 2021-03-24 15:09:45 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (4, 2001, 3000);
+/* 2021-03-24 15:09:46 [java] */ INSERT INTO SALGRADE (GRADE, LOSAL, HISAL) VALUES (5, 3001, 9999);
+/* 2021-03-24 15:09:46 [java] */ COMMIT;
+/* 2021-03-24 15:09:46 [] */ /* 영향 받은 행: 5  찾은 행: 0  경고: 0  지속 시간 6 쿼리: 0.032 초 */
+/* 2021-03-24 15:09:52 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:09:53 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-24 15:09:56 [java] */ SHOW CREATE TABLE `bigdb`.`temp`;
+/* 2021-03-24 15:09:56 [java] */ SELECT * FROM `bigdb`.`temp` LIMIT 1000;
+/* 2021-03-24 15:09:57 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-24 15:09:57 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-24 15:09:58 [java] */ SHOW CREATE TABLE `bigdb`.`salgrade`;
+/* 2021-03-24 15:09:58 [java] */ SELECT * FROM `bigdb`.`salgrade` LIMIT 1000;
+/* 2021-03-24 15:09:59 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 15:09:59 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 15:10:00 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-24 15:10:00 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-24 15:10:01 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-24 15:10:01 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-24 15:45:06 [java] */ HELP 'CONTENTS';
+/* 2021-03-24 15:45:07 [java] */ HELP 'STR_TO_DATE';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Account Management';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Administration';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Compound Statements';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Data Definition';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Data Manipulation';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Data Types';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Functions';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Bit Functions';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Comparison Operators';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Control Flow Functions';
+/* 2021-03-24 15:45:07 [java] */ HELP 'Date and Time Functions';
+/* 2021-03-24 15:45:07 [java] */ HELP 'STR_TO_DATE';
+/* 2021-03-24 16:00:04 [java] */ SELECT * FROM emp;
+/* 2021-03-24 16:00:04 [] */ /* 영향 받은 행: 0  찾은 행: 14  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-03-24 16:32:49 [java] */ /* 127.0.0.1 의 연결이 2021-03-24 16:32:49 에 종료됨 */
+/* 2021-03-24 16:33:16 [study] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "study", 암호 사용: Yes… */
+/* 2021-03-24 16:33:16 [study] */ /* Access denied for user 'study'@'localhost' (using password: YES) */
+/* 2021-03-24 16:33:21 [study] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "study", 암호 사용: Yes… */
+/* 2021-03-24 16:33:21 [study] */ /* Access denied for user 'study'@'localhost' (using password: YES) */
+/* 2021-03-24 16:33:36 [study] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "study", 암호 사용: Yes… */
+/* 2021-03-24 16:33:36 [study] */ /* Access denied for user 'study'@'localhost' (using password: YES) */
