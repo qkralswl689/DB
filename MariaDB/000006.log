@@ -834,4 +834,4 @@ FROM professor
 where id LIKE BINARY'%k%';
 /* 2021-03-24 18:14:12 [] */ /* 영향 받은 행: 0  찾은 행: 4  경고: 0  지속 시간 1 쿼리: 0.000 초 */
 /* 2021-03-24 18:14:28 [scott] */ SHOW CREATE TABLE `scott`.`professor`;
-/* 2021-03-24 18:14:29 [scott] */
+/* 2021-03-24 18:14:29 [scott] */ SELECT * FROM `scott`.`professor` ORDER BY `position` ASC, `name` ASC LIMIT 1000;
