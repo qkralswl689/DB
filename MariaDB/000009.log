@@ -1,0 +1,150 @@
+/* 2021-03-30 17:11:26 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-30 17:11:26 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-30 17:11:26 [scott] */ /* 연결됨. 스레드-ID: 8 */
+/* 2021-03-30 17:11:26 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-30 17:11:26 [scott] */ SHOW STATUS;
+/* 2021-03-30 17:11:26 [scott] */ SELECT NOW();
+/* 2021-03-30 17:11:26 [scott] */ SHOW VARIABLES;
+/* 2021-03-30 17:11:26 [scott] */ SHOW OPEN TABLES FROM scott WHERE `in_use`!=0;
+/* 2021-03-30 17:11:26 [scott] */ USE `scott`;
+/* 2021-03-30 17:11:26 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:11:26 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:11:26 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:11:26 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:11:26 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:11:26 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:11:26 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:11:26 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-30 17:11:26 [] */ /* Loading file "C:\Users\82104\AppData\Roaming\HeidiSQL\Backups\query-tab-2021-03-24_16-59-23-986.sql" (6.0 KiB) into query tab #2 ... */
+/* 2021-03-30 17:11:49 [scott] */ USE `scott`;
+/* 2021-03-30 17:16:14 [scott] */ -- 테이블 생성
+CREATE TABLE member (
+	id VARCHAR(20) PRIMARY KEY,
+	pass VARCHAR(100) ,
+	NAME VARCHAR(20) ,
+	age INT NOT NULL,
+	gender VARCHAR(5) ,
+	email VARCHAR(30)
+);
+/* 2021-03-30 17:16:14 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-03-30 17:16:30 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:16:32 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:16:32 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:16:32 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:16:32 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:16:32 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:16:32 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:16:34 [scott] */ SHOW FULL COLUMNS FROM `scott`.`member`;
+/* 2021-03-30 17:16:34 [scott] */ SHOW INDEXES FROM `member` FROM `scott`;
+/* 2021-03-30 17:16:34 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:16:34 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:16:34 [scott] */ SHOW ENGINES;
+/* 2021-03-30 17:16:34 [scott] */ SHOW COLLATION;
+/* 2021-03-30 17:16:34 [scott] */ SHOW CREATE TABLE `scott`.`member`;
+/* 2021-03-30 17:24:23 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:24:23 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:24:23 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:24:23 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:24:23 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:24:23 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:24:23 [scott] */ SHOW FULL COLUMNS FROM `scott`.`member`;
+/* 2021-03-30 17:24:23 [scott] */ SHOW INDEXES FROM `member` FROM `scott`;
+/* 2021-03-30 17:24:23 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:24:23 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:24:23 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:24:26 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:24:26 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:24:26 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:24:26 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:24:26 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:24:26 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:24:26 [scott] */ SHOW FULL COLUMNS FROM `scott`.`member`;
+/* 2021-03-30 17:24:26 [scott] */ SHOW INDEXES FROM `member` FROM `scott`;
+/* 2021-03-30 17:24:26 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:24:26 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:24:26 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:24:30 [scott] */ SELECT * FROM `scott`.`member` LIMIT 1000;
+/* 2021-03-30 17:24:33 [scott] */ SELECT * FROM `scott`.`member` LIMIT 1000;
+/* 2021-03-30 17:24:46 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC LIMIT 1000;
+/* 2021-03-30 17:24:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC LIMIT 1000;
+/* 2021-03-30 17:24:48 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC, `NAME` ASC LIMIT 1000;
+/* 2021-03-30 17:24:49 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC, `NAME` ASC, `age` ASC LIMIT 1000;
+/* 2021-03-30 17:24:50 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC, `NAME` ASC, `age` ASC, `gender` ASC LIMIT 1000;
+/* 2021-03-30 17:24:51 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:44 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` ASC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:46 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:47 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:51:56 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:51:56 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:51:56 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:51:56 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:51:56 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:51:56 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:51:56 [scott] */ SHOW FULL COLUMNS FROM `scott`.`member`;
+/* 2021-03-30 17:51:56 [scott] */ SHOW INDEXES FROM `member` FROM `scott`;
+/* 2021-03-30 17:51:56 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:51:56 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:51:57 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:52:00 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 17:53:19 [scott] */ /* 127.0.0.1 의 연결이 2021-03-30 17:53:19 에 종료됨 */
+/* 2021-03-30 17:53:22 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-03-30 17:53:22 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-03-30 17:53:28 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-30 17:53:28 [root] */ /* Access denied for user 'root'@'localhost' (using password: YES) */
+/* 2021-03-30 17:53:32 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-03-30 17:53:32 [root] */ SELECT CONNECTION_ID();
+/* 2021-03-30 17:53:32 [root] */ /* 연결됨. 스레드-ID: 11 */
+/* 2021-03-30 17:53:32 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-30 17:53:32 [root] */ SHOW STATUS;
+/* 2021-03-30 17:53:32 [root] */ SELECT NOW();
+/* 2021-03-30 17:53:32 [root] */ SHOW VARIABLES;
+/* 2021-03-30 17:53:32 [root] */ SHOW DATABASES;
+/* 2021-03-30 17:53:32 [] */ /* "root" 세션 시작 */
+/* 2021-03-30 17:56:18 [root] */ USE `scott`;
+/* 2021-03-30 17:56:18 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:56:18 [root] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:56:18 [root] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:56:18 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:56:18 [root] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:56:18 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-03-30 17:56:18 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-03-30 17:56:18 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-03-30 17:56:18 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-03-30 17:56:18 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-03-30 17:56:18 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-03-30 17:56:18 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='scott';
+/* 2021-03-30 17:56:24 [root] */ /* 127.0.0.1 의 연결이 2021-03-30 17:56:24 에 종료됨 */
+/* 2021-03-30 17:56:28 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-30 17:56:28 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-30 17:56:28 [scott] */ /* 연결됨. 스레드-ID: 12 */
+/* 2021-03-30 17:56:28 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-30 17:56:28 [scott] */ SHOW STATUS;
+/* 2021-03-30 17:56:28 [scott] */ SELECT NOW();
+/* 2021-03-30 17:56:28 [scott] */ SHOW VARIABLES;
+/* 2021-03-30 17:56:28 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 17:56:32 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 17:56:32 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 17:56:32 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:56:32 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 17:56:32 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 17:56:32 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 17:56:33 [scott] */ USE `scott`;
+/* 2021-03-30 17:56:33 [scott] */ SHOW FULL COLUMNS FROM `scott`.`member`;
+/* 2021-03-30 17:56:33 [scott] */ SHOW INDEXES FROM `member` FROM `scott`;
+/* 2021-03-30 17:56:33 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:56:33 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 17:56:33 [scott] */ SHOW ENGINES;
+/* 2021-03-30 17:56:33 [scott] */ SHOW COLLATION;
+/* 2021-03-30 17:56:33 [scott] */ SHOW CREATE TABLE `scott`.`member`;
+/* 2021-03-30 17:56:34 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 18:12:08 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 21:33:04 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 21:33:05 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 21:33:05 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 21:35:25 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 21:40:21 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;
+/* 2021-03-30 22:12:22 [scott] */ SELECT * FROM `scott`.`member` ORDER BY `id` ASC, `pass` DESC, `NAME` ASC, `age` ASC, `gender` ASC, `email` ASC LIMIT 1000;

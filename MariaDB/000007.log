@@ -1,0 +1,80 @@
+/* 2021-03-30 16:16:05 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-03-30 16:16:05 [java] */ SELECT CONNECTION_ID();
+/* 2021-03-30 16:16:05 [java] */ /* 연결됨. 스레드-ID: 6 */
+/* 2021-03-30 16:16:05 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-30 16:16:05 [java] */ SHOW STATUS;
+/* 2021-03-30 16:16:05 [java] */ SELECT NOW();
+/* 2021-03-30 16:16:05 [java] */ SHOW VARIABLES;
+/* 2021-03-30 16:16:05 [java] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-03-30 16:16:05 [java] */ USE `bigdb`;
+/* 2021-03-30 16:16:05 [] */ /* "java" 세션 시작 */
+/* 2021-03-30 16:16:05 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-03-30 16:16:05 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-03-30 16:16:05 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-03-30 16:16:05 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-03-30 16:16:05 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-03-30 16:16:05 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-03-30 16:16:06 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-03-30 16:16:06 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_24_scott_연습.sql" (6.0 KiB) into query tab #2 ... */
+/* 2021-03-30 16:16:08 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`emp`;
+/* 2021-03-30 16:16:08 [java] */ SHOW INDEXES FROM `emp` FROM `bigdb`;
+/* 2021-03-30 16:16:08 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:08 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:08 [java] */ SHOW ENGINES;
+/* 2021-03-30 16:16:08 [java] */ SHOW COLLATION;
+/* 2021-03-30 16:16:08 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-30 16:16:16 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-30 16:16:21 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`salgrade`;
+/* 2021-03-30 16:16:21 [java] */ SHOW INDEXES FROM `salgrade` FROM `bigdb`;
+/* 2021-03-30 16:16:21 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:21 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='salgrade'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:22 [java] */ SHOW CREATE TABLE `bigdb`.`salgrade`;
+/* 2021-03-30 16:16:22 [java] */ SELECT * FROM `bigdb`.`salgrade` LIMIT 1000;
+/* 2021-03-30 16:16:24 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`dept`;
+/* 2021-03-30 16:16:24 [java] */ SHOW INDEXES FROM `dept` FROM `bigdb`;
+/* 2021-03-30 16:16:24 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:24 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:24 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-30 16:16:24 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-30 16:16:26 [java] */ SHOW CREATE TABLE `bigdb`.`emp`;
+/* 2021-03-30 16:16:26 [java] */ SELECT * FROM `bigdb`.`emp` ORDER BY `EMPNO` ASC LIMIT 1000;
+/* 2021-03-30 16:16:26 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-30 16:16:26 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-30 16:16:40 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`bonus`;
+/* 2021-03-30 16:16:40 [java] */ SHOW INDEXES FROM `bonus` FROM `bigdb`;
+/* 2021-03-30 16:16:40 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:40 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='bonus'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:16:40 [java] */ SHOW CREATE TABLE `bigdb`.`bonus`;
+/* 2021-03-30 16:16:40 [java] */ SELECT * FROM `bigdb`.`bonus` LIMIT 1000;
+/* 2021-03-30 16:16:41 [java] */ SHOW CREATE TABLE `bigdb`.`dept`;
+/* 2021-03-30 16:16:41 [java] */ SELECT * FROM `bigdb`.`dept` LIMIT 1000;
+/* 2021-03-30 16:21:03 [java] */ /* 127.0.0.1 의 연결이 2021-03-30 16:21:03 에 종료됨 */
+/* 2021-03-30 16:21:08 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-03-30 16:21:08 [scott] */ SELECT CONNECTION_ID();
+/* 2021-03-30 16:21:08 [scott] */ /* 연결됨. 스레드-ID: 7 */
+/* 2021-03-30 16:21:08 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-03-30 16:21:08 [scott] */ SHOW STATUS;
+/* 2021-03-30 16:21:08 [scott] */ SELECT NOW();
+/* 2021-03-30 16:21:08 [scott] */ SHOW VARIABLES;
+/* 2021-03-30 16:21:08 [scott] */ SHOW OPEN TABLES FROM scott WHERE `in_use`!=0;
+/* 2021-03-30 16:21:08 [scott] */ USE `scott`;
+/* 2021-03-30 16:21:08 [] */ /* "scott" 세션 시작 */
+/* 2021-03-30 16:21:08 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-03-30 16:21:08 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-03-30 16:21:08 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-03-30 16:21:08 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-03-30 16:21:08 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-03-30 16:21:08 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-03-30 16:21:10 [scott] */ SHOW FULL COLUMNS FROM `scott`.`dept`;
+/* 2021-03-30 16:21:10 [scott] */ SHOW INDEXES FROM `dept` FROM `scott`;
+/* 2021-03-30 16:21:10 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:21:10 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='dept'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:21:10 [scott] */ SHOW ENGINES;
+/* 2021-03-30 16:21:11 [scott] */ SHOW COLLATION;
+/* 2021-03-30 16:21:11 [scott] */ SHOW CREATE TABLE `scott`.`dept`;
+/* 2021-03-30 16:21:12 [scott] */ SHOW FULL COLUMNS FROM `scott`.`emp`;
+/* 2021-03-30 16:21:12 [scott] */ SHOW INDEXES FROM `emp` FROM `scott`;
+/* 2021-03-30 16:21:12 [scott] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:21:12 [scott] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='scott'   AND TABLE_NAME='emp'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-03-30 16:21:12 [scott] */ SHOW CREATE TABLE `scott`.`emp`;
+/* 2021-03-30 16:21:32 [scott] */ SHOW CREATE TABLE `scott`.`emp`;
