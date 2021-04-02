@@ -1,0 +1,111 @@
+/* 2021-04-02 16:47:47 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-04-02 16:47:47 [java] */ SELECT CONNECTION_ID();
+/* 2021-04-02 16:47:47 [java] */ /* 연결됨. 스레드-ID: 30 */
+/* 2021-04-02 16:47:47 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-02 16:47:47 [java] */ SHOW STATUS;
+/* 2021-04-02 16:47:47 [java] */ SELECT NOW();
+/* 2021-04-02 16:47:47 [java] */ SHOW VARIABLES;
+/* 2021-04-02 16:47:47 [java] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-04-02 16:47:47 [java] */ USE `bigdb`;
+/* 2021-04-02 16:47:47 [] */ /* "java" 세션 시작 */
+/* 2021-04-02 16:47:47 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-02 16:47:47 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-02 16:47:48 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-02 16:47:48 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-02 16:47:48 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-02 16:47:48 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-02 16:47:48 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-04-02 16:47:48 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_30_member생성.sql" (173 B) into query tab #2 ... */
+/* 2021-04-02 16:48:27 [java] */ CREATE TABLE member (
+    member_id   varchar(20)    PRIMARY KEY,
+    member_password varchar(20)    NOT NULL,
+    member_nickname varchar(75)    NOT NULL,
+    member_name varchar(75)    NOT NULL,
+    member_gender   CHAR(1)    NOT NULL,
+    member_email    varchar(50)    NOT NULL,
+    member_phone    varchar(13)    NOT NULL,
+    member_birth    DATE    NOT NULL,
+    member_zip  CHAR(5),
+    member_address_basic    varchar(600),
+    member_address_detail   varchar(300),
+    member_joindate DATE DEFAULT NOW() NOT NULL
+);
+/* 2021-04-02 16:48:27 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-04-02 16:49:24 [java] */ CREATE TABLE member (
+    member_id   varchar(20)    PRIMARY KEY,
+    member_password varchar(20)    NOT NULL,
+    member_nickname varchar(75)    NOT NULL,
+    member_name varchar(75)    NOT NULL,
+    member_gender   CHAR(1)    NOT NULL,
+    member_email    varchar(50)    NOT NULL,
+    member_phone    varchar(13)    NOT NULL,
+    member_birth    DATE    NOT NULL,
+    member_zip  CHAR(5),
+    member_address_basic    varchar(600),
+    member_address_detail   varchar(300),
+    member_joindate DATE DEFAULT NOW() NOT NULL
+);
+/* 2021-04-02 16:49:24 [java] */ /* SQL 오류 (1050): Table 'member' already exists */
+/* 2021-04-02 16:49:24 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-02 16:49:31 [] */ /* "java" 세션 시작 */
+/* 2021-04-02 16:49:32 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-02 16:49:32 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-02 16:49:32 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-02 16:49:32 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-02 16:49:32 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-02 16:49:32 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-02 16:49:33 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-02 16:49:33 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-02 16:49:33 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-02 16:49:33 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-02 16:49:33 [java] */ SHOW ENGINES;
+/* 2021-04-02 16:49:33 [java] */ SHOW COLLATION;
+/* 2021-04-02 16:49:33 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-02 16:49:36 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-02 16:49:56 [java] */ INSERT INTO member VALUES
+('javacan', '#Abcd1234', '자바맨', '홍길동', 'm', 'abcd@abcd.com',
+'010-1234-5678', '1990-01-01', '12345','서울 금천구 가산',
+'대륭 3차 11층', NOW());
+/* 2021-04-02 16:49:56 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 1  지속 시간 1 쿼리: 0.015 초 */
+/* 2021-04-02 16:49:56 [java] */ SHOW WARNINGS LIMIT 5;
+/* 2021-04-02 16:50:03 [java] */ INSERT INTO member VALUES
+('javacan', '#Abcd1234', '자바맨', '홍길동', 'm', 'abcd@abcd.com',
+'010-1234-5678', '1990-01-01', '12345','서울 금천구 가산',
+'대륭 3차 11층', NOW());
+/* 2021-04-02 16:50:03 [java] */ /* SQL 오류 (1062): Duplicate entry 'javacan' for key 'PRIMARY' */
+/* 2021-04-02 16:50:03 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-02 16:50:43 [java] */ memberCREATE TABLE member (
+    member_id   varchar(20)    PRIMARY KEY,
+    member_password varchar(20)    NOT NULL,
+    member_nickname varchar(75)    NOT NULL,
+    member_name varchar(75)    NOT NULL,
+    member_gender   CHAR(1)    NOT NULL,
+    member_email    varchar(50)    NOT NULL,
+    member_phone    varchar(13)    NOT NULL,
+    member_birth    DATE    NOT NULL,
+    member_zip  CHAR(5),
+    member_address_basic    varchar(600),
+    member_address_detail   varchar(300),
+    member_joindate DATE DEFAULT NOW() NOT NULL
+);
+/* 2021-04-02 16:50:43 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'memberCREATE TABLE member (
+    member_id   varchar(20)    PRIMARY KEY,
+   ...' at line 1 */
+/* 2021-04-02 16:50:45 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 2 쿼리: 0.000 초 */
+/* 2021-04-02 16:50:58 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-02 16:51:15 [java] */ SELECT *
+FROM member 
+WHERE member_name LIKE '%순%'
+ORDER BY member_id ASC
+LIMIT 0, 10;
+/* 2021-04-02 16:51:15 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-04-02 17:11:07 [java] */ -- 해당 날짜 요일 확인
+SELECT DATE_FORMAT('2021-04-02',%w,'ko_kr');
+/* 2021-04-02 17:11:07 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '%w,'ko_kr')' at line 2 */
+/* 2021-04-02 17:11:07 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-02 17:14:00 [java] */ -- 해당 날짜 요일 확인
+SELECT DATE_FORMAT('2021-04-02','%w','ko_KR');
+/* 2021-04-02 17:14:00 [] */ /* 영향 받은 행: 0  찾은 행: 1  경고: 0  지속 시간 1 쿼리: 0.016 초 */
+/* 2021-04-02 17:14:13 [java] */ -- 해당 날짜 요일 확인
+SELECT DATE_FORMAT('2021-04-02','%W','ko_KR');
+/* 2021-04-02 17:14:13 [] */ /* 영향 받은 행: 0  찾은 행: 1  경고: 0  지속 시간 1 쿼리: 0.000 초 */
