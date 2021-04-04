@@ -1,0 +1,47 @@
+/* 2021-04-04 19:29:32 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-04-04 19:29:32 [root] */ SELECT CONNECTION_ID();
+/* 2021-04-04 19:29:32 [root] */ /* 연결됨. 스레드-ID: 43 */
+/* 2021-04-04 19:29:32 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-04 19:29:32 [root] */ SHOW STATUS;
+/* 2021-04-04 19:29:32 [root] */ SELECT NOW();
+/* 2021-04-04 19:29:32 [root] */ SHOW VARIABLES;
+/* 2021-04-04 19:29:32 [root] */ SHOW DATABASES;
+/* 2021-04-04 19:29:32 [root] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-04-04 19:29:32 [root] */ USE `bigdb`;
+/* 2021-04-04 19:29:32 [] */ /* "root" 세션 시작 */
+/* 2021-04-04 19:29:32 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-04 19:29:32 [root] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-04 19:29:32 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-04 19:29:32 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-04 19:29:32 [root] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-04 19:29:32 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-04-04 19:29:32 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-04-04 19:29:32 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:29:32 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:29:32 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-04-04 19:29:32 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-04-04 19:29:32 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bigdb';
+/* 2021-04-04 19:29:32 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (255 B) into query tab #1 ... */
+/* 2021-04-04 19:29:35 [root] */ FLUSH PRIVILEGES;
+/* 2021-04-04 19:29:35 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-04-04 19:29:35 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-04-04 19:29:36 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-04-04 19:30:24 [root] */ SHOW COLLATION;
+/* 2021-04-04 19:30:29 [root] */ CREATE DATABASE `dogshop` /*!40100 COLLATE 'utf8_general_ci' */;
+/* 2021-04-04 19:30:29 [root] */ SHOW DATABASES;
+/* 2021-04-04 19:30:30 [] */ /* "root" 세션 시작 */
+/* 2021-04-04 19:30:32 [root] */ USE `dogshop`;
+/* 2021-04-04 19:30:35 [root] */ FLUSH PRIVILEGES;
+/* 2021-04-04 19:30:35 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-04-04 19:30:35 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-04-04 19:30:36 [root] */ SHOW GRANTS FOR 'root'@'mingki';
+/* 2021-04-04 19:30:39 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-04-04 19:30:46 [root] */ GRANT USAGE ON `dogshop`.* TO 'mingki'@'localhost';
+/* 2021-04-04 19:30:46 [root] */ SET PASSWORD FOR 'mingki'@'localhost' = PASSWORD('1234');
+/* 2021-04-04 19:30:46 [root] */ FLUSH PRIVILEGES;
+/* 2021-04-04 19:30:46 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-04-04 19:30:55 [root] */ GRANT EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, LOCK TABLES  ON `dogshop`.* TO 'mingki'@'localhost' WITH GRANT OPTION;
+/* 2021-04-04 19:30:55 [root] */ SET PASSWORD FOR 'mingki'@'localhost' = PASSWORD('1234');
+/* 2021-04-04 19:30:55 [root] */ FLUSH PRIVILEGES;
+/* 2021-04-04 19:30:55 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-04-04 19:30:58 [root] */ /* 127.0.0.1 의 연결이 2021-04-04 19:30:58 에 종료됨 */

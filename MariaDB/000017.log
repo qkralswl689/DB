@@ -1,0 +1,164 @@
+/* 2021-04-04 19:31:37 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-04-04 19:31:37 [root] */ SELECT CONNECTION_ID();
+/* 2021-04-04 19:31:37 [root] */ /* 연결됨. 스레드-ID: 44 */
+/* 2021-04-04 19:31:37 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-04 19:31:37 [root] */ SHOW STATUS;
+/* 2021-04-04 19:31:37 [root] */ SELECT NOW();
+/* 2021-04-04 19:31:37 [root] */ SHOW VARIABLES;
+/* 2021-04-04 19:31:37 [root] */ SHOW DATABASES;
+/* 2021-04-04 19:31:37 [root] */ SHOW OPEN TABLES FROM dogshop WHERE `in_use`!=0;
+/* 2021-04-04 19:31:37 [root] */ USE `dogshop`;
+/* 2021-04-04 19:31:37 [] */ /* "root" 세션 시작 */
+/* 2021-04-04 19:31:37 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='dogshop';
+/* 2021-04-04 19:31:37 [root] */ SHOW TABLE STATUS FROM `dogshop`;
+/* 2021-04-04 19:31:37 [root] */ SHOW FUNCTION STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:31:37 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:31:37 [root] */ SHOW TRIGGERS FROM `dogshop`;
+/* 2021-04-04 19:31:37 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-04-04 19:31:37 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-04-04 19:31:37 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:31:37 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:31:37 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-04-04 19:31:37 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-04-04 19:31:37 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='dogshop';
+/* 2021-04-04 19:31:38 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (255 B) into query tab #1 ... */
+/* 2021-04-04 19:32:00 [root] */ /* 127.0.0.1 의 연결이 2021-04-04 19:32:00 에 종료됨 */
+/* 2021-04-04 19:32:23 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:32:23 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
+/* 2021-04-04 19:32:30 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:32:30 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
+/* 2021-04-04 19:32:36 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:32:36 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-04-04 19:32:36 [mingki] */ /* 연결됨. 스레드-ID: 47 */
+/* 2021-04-04 19:32:36 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-04 19:32:36 [mingki] */ SHOW STATUS;
+/* 2021-04-04 19:32:36 [mingki] */ SELECT NOW();
+/* 2021-04-04 19:32:36 [mingki] */ SHOW VARIABLES;
+/* 2021-04-04 19:32:37 [] */ /* "mingki" 세션 시작 */
+/* 2021-04-04 19:34:13 [mingki] */ CREATE TABLE dog(
+	id NUMBER PRIMARY KEY,
+	kind VARCHAR2(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image VARCHAR2(20) NOT NULL,
+	country VARCHAR2(12) NOT NULL,
+	height NUMBER,
+	weight NUMBER,
+	content VARCHAR2(400),
+	readcount NUMBER
+);
+/* 2021-04-04 19:34:13 [mingki] */ /* SQL 오류 (1046): No database selected */
+/* 2021-04-04 19:34:13 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:34:36 [mingki] */ USE dogshop;
+/* 2021-04-04 19:34:36 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:34:41 [mingki] */ CREATE TABLE dog(
+	id NUMBER PRIMARY KEY,
+	kind VARCHAR2(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image VARCHAR2(20) NOT NULL,
+	country VARCHAR2(12) NOT NULL,
+	height NUMBER,
+	weight NUMBER,
+	content VARCHAR2(400),
+	readcount NUMBER
+);
+/* 2021-04-04 19:34:41 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIMARY KEY,
+	kind VARCHAR2(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image V...' at line 2 */
+/* 2021-04-04 19:34:41 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:34:51 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='dogshop';
+/* 2021-04-04 19:34:52 [mingki] */ SHOW TABLE STATUS FROM `dogshop`;
+/* 2021-04-04 19:34:52 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:34:52 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:34:52 [mingki] */ SHOW TRIGGERS FROM `dogshop`;
+/* 2021-04-04 19:34:52 [mingki] */ SHOW EVENTS FROM `dogshop`;
+/* 2021-04-04 19:34:57 [mingki] */ CREATE TABLE dog(
+	id NUMBER PRIMARY KEY,
+	kind VARCHAR2(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image VARCHAR2(20) NOT NULL,
+	country VARCHAR2(12) NOT NULL,
+	height NUMBER,
+	weight NUMBER,
+	content VARCHAR2(400),
+	readcount NUMBER
+);
+/* 2021-04-04 19:34:57 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIMARY KEY,
+	kind VARCHAR2(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image V...' at line 2 */
+/* 2021-04-04 19:34:57 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:35:25 [mingki] */ CREATE TABLE dog(
+	id NUMBER PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image VARCHAR(20) NOT NULL,
+	country VARCHAR(12) NOT NULL,
+	height NUMBER,
+	weight NUMBER,
+	content VARCHAR(400),
+	readcount NUMBER
+);
+/* 2021-04-04 19:35:25 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+	price NUMBER NOT NULL,
+	image VA...' at line 2 */
+/* 2021-04-04 19:35:25 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:35:40 [mingki] */ CREATE TABLE dog(
+	id int PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+	price int NOT NULL,
+	image VARCHAR(20) NOT NULL,
+	country VARCHAR(12) NOT NULL,
+	height int,
+	weight int,
+	content VARCHAR(400),
+	readcount int
+);
+/* 2021-04-04 19:35:40 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-04-04 19:36:43 [mingki] */ CREATE TABLE dog(
+	id integer PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+	price integer NOT NULL,
+	image VARCHAR(20) NOT NULL,
+	country VARCHAR(12) NOT NULL,
+	height integer,
+	weight integer,
+	content VARCHAR(400),
+	readcount integer
+);
+/* 2021-04-04 19:36:43 [mingki] */ /* SQL 오류 (1050): Table 'dog' already exists */
+/* 2021-04-04 19:36:43 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-04 19:36:49 [] */ /* "mingki" 세션 시작 */
+/* 2021-04-04 19:36:50 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='dogshop';
+/* 2021-04-04 19:36:50 [mingki] */ SHOW TABLE STATUS FROM `dogshop`;
+/* 2021-04-04 19:36:50 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:36:50 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='dogshop';
+/* 2021-04-04 19:36:50 [mingki] */ SHOW TRIGGERS FROM `dogshop`;
+/* 2021-04-04 19:36:51 [mingki] */ SHOW EVENTS FROM `dogshop`;
+/* 2021-04-04 19:36:51 [mingki] */ SHOW FULL COLUMNS FROM `dogshop`.`dog`;
+/* 2021-04-04 19:36:51 [mingki] */ SHOW INDEXES FROM `dog` FROM `dogshop`;
+/* 2021-04-04 19:36:51 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='dogshop'   AND TABLE_NAME='dog'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-04 19:36:51 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='dogshop'   AND TABLE_NAME='dog'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-04 19:36:51 [mingki] */ SHOW ENGINES;
+/* 2021-04-04 19:36:51 [mingki] */ SHOW COLLATION;
+/* 2021-04-04 19:36:52 [mingki] */ SHOW CREATE TABLE `dogshop`.`dog`;
+/* 2021-04-04 19:36:53 [mingki] */ SELECT  `id`,  `kind`,  `price`,  `image`,  `country`,  `height`,  `weight`,  LEFT(`content`, 256),  `readcount` FROM `dogshop`.`dog` LIMIT 1000;
+/* 2021-04-04 19:37:12 [mingki] */ CREATE SEQUENCE dog_seq;
+/* 2021-04-04 19:37:12 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-04-04 19:37:31 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'푸들',1000,'pu.jpg','프랑스',1,20,'털많다',0);
+/* 2021-04-04 19:37:31 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:31 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'불독',2000,'bul.jpg','독일',1,20,'못생겼다',0);
+/* 2021-04-04 19:37:31 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:31 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'진도개',3000,'jin.jpg','대한민국',1,20,'최고다',0);
+/* 2021-04-04 19:37:31 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:31 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'허스키',4000,'h.jpg','북극',1,20,'멋지다',0);
+/* 2021-04-04 19:37:31 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:35 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 5 쿼리: 0.000 초 */
+/* 2021-04-04 19:37:41 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'푸들',1000,'pu.jpg','프랑스',1,20,'털많다',0);
+/* 2021-04-04 19:37:41 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:41 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'불독',2000,'bul.jpg','독일',1,20,'못생겼다',0);
+/* 2021-04-04 19:37:41 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:41 [mingki] */ INSERT INTO dog VALUES(dog_seq.nextval,'진도개',3000,'jin.jpg','대한민국',1,20,'최고다',0);
+/* 2021-04-04 19:37:41 [mingki] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-04-04 19:37:47 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 4 쿼리: 0.000 초 */

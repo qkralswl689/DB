@@ -12,3 +12,4 @@ INSERT INTO temp VALUES('hyun','혀니');
 
 -- 정보 검색
 SELECT * FROM temp;
+bigdb

@@ -1,0 +1,41 @@
+/* 2021-04-04 19:18:41 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:18:41 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
+/* 2021-04-04 19:18:59 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:18:59 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
+/* 2021-04-04 19:19:05 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-04-04 19:19:05 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-04-04 19:19:09 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-04-04 19:19:09 [root] */ /* Access denied for user 'root'@'localhost' (using password: YES) */
+/* 2021-04-04 19:19:13 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-04-04 19:19:13 [root] */ SELECT CONNECTION_ID();
+/* 2021-04-04 19:19:13 [root] */ /* 연결됨. 스레드-ID: 35 */
+/* 2021-04-04 19:19:13 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-04 19:19:13 [root] */ SHOW STATUS;
+/* 2021-04-04 19:19:13 [root] */ SELECT NOW();
+/* 2021-04-04 19:19:13 [root] */ SHOW VARIABLES;
+/* 2021-04-04 19:19:13 [root] */ SHOW DATABASES;
+/* 2021-04-04 19:19:13 [root] */ SHOW OPEN TABLES FROM scott WHERE `in_use`!=0;
+/* 2021-04-04 19:19:13 [root] */ USE `scott`;
+/* 2021-04-04 19:19:13 [] */ /* "root" 세션 시작 */
+/* 2021-04-04 19:19:13 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-04-04 19:19:13 [root] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-04-04 19:19:13 [root] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-04-04 19:19:13 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-04-04 19:19:13 [root] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-04-04 19:19:13 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-04-04 19:19:13 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-04-04 19:19:14 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:19:14 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-04-04 19:19:14 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-04-04 19:19:14 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-04-04 19:19:14 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='scott';
+/* 2021-04-04 19:19:14 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\03_23_테이블생성및삽입.sql" (250 B) into query tab #1 ... */
+/* 2021-04-04 19:19:14 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\04_02.sql" (961 B) into query tab #2 ... */
+/* 2021-04-04 19:19:29 [root] */ USE `bigdb`;
+/* 2021-04-04 19:19:30 [root] */ USE `mysql`;
+/* 2021-04-04 19:19:32 [root] */ USE `scott`;
+/* 2021-04-04 19:19:32 [root] */ USE `performance_schema`;
+/* 2021-04-04 19:19:34 [root] */ USE `information_schema`;
+/* 2021-04-04 19:19:40 [root] */ /* 127.0.0.1 의 연결이 2021-04-04 19:19:40 에 종료됨 */
+/* 2021-04-04 19:19:44 [mingki] */ /* 127.0.0.1 에 MySQL (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-04 19:19:44 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
