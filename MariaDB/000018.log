@@ -1,0 +1,280 @@
+/* 2021-04-05 09:52:37 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-04-05 09:52:37 [mingki] */ /* Access denied for user 'mingki'@'localhost' (using password: YES) */
+/* 2021-04-05 09:52:48 [java] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "java", 암호 사용: Yes… */
+/* 2021-04-05 09:52:48 [java] */ SELECT CONNECTION_ID();
+/* 2021-04-05 09:52:48 [java] */ /* 연결됨. 스레드-ID: 49 */
+/* 2021-04-05 09:52:48 [java] */ /* 문자 집합: utf8mb4 */
+/* 2021-04-05 09:52:48 [java] */ SHOW STATUS;
+/* 2021-04-05 09:52:48 [java] */ SELECT NOW();
+/* 2021-04-05 09:52:48 [java] */ SHOW VARIABLES;
+/* 2021-04-05 09:52:48 [java] */ SHOW OPEN TABLES FROM bigdb WHERE `in_use`!=0;
+/* 2021-04-05 09:52:48 [java] */ USE `bigdb`;
+/* 2021-04-05 09:52:48 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:52:48 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:52:48 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:52:48 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:52:48 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:52:48 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:52:48 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:52:48 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\04.04_mingki_dogshop.sql" (676 B) into query tab #1 ... */
+/* 2021-04-05 09:52:52 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:52:52 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:52:52 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:52:52 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:52:53 [java] */ SHOW ENGINES;
+/* 2021-04-05 09:52:53 [java] */ SHOW COLLATION;
+/* 2021-04-05 09:52:53 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 09:52:55 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:54:18 [java] */ CREATE OR REPLACE PROCEDURE dummy_member_gen_proc()
+BEGIN
+	 
+	 START TRANSACTION;
+	 
+    FOR i IN 1..100 
+	 DO
+        INSERT INTO member VALUES
+        (CONCAT('goodee_', (1000+i)),
+         '#Oracle1234',
+         '별명',
+         CONCAT('김', (100+i)),
+         'm',
+         CONCAT('goodee_',  i,  '@abcd.com'),
+         CONCAT('010-1234-', (1000+i)),
+         '1990-1-1',  
+         '12345',  
+         '서울 금천구 가산대로',
+         '구디아카데미',  
+         NOW());
+     END FOR;
+     
+     COMMIT;
+ 
+END ;
+/* 2021-04-05 09:54:18 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.016 초 */
+/* 2021-04-05 09:54:26 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:54:26 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:54:26 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:26 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:26 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:54:26 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:54:26 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:54:26 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:54:26 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:26 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:26 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:54:28 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:54:28 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:54:28 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:28 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:28 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:54:28 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:54:28 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:54:28 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:54:28 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:28 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:28 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:54:29 [java] */ SELECT CURRENT_USER();
+/* 2021-04-05 09:54:29 [java] */ SHOW CREATE PROCEDURE `bigdb`.`dummy_member_gen_proc`;
+/* 2021-04-05 09:54:33 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 09:54:35 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:54:37 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:54:38 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:54:38 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:54:43 [java] */ SHOW CREATE PROCEDURE `bigdb`.`dummy_member_gen_proc`;
+/* 2021-04-05 09:54:49 [java] */ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+/* 2021-04-05 09:54:49 [java] */ DROP PROCEDURE `dummy_member_gen_proc`;
+/* 2021-04-05 09:54:49 [java] */ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+/* 2021-04-05 09:54:49 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:54:49 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:54:49 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:49 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:50 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:54:50 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:54:50 [] */ /* 트리에서 "dummy_member_gen_proc" 테이블 노드를 찾을 수 없습니다. */
+/* 2021-04-05 09:54:50 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:54:54 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:54:54 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:54:54 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:54 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:54 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 09:54:56 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:54:56 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:54:56 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:56 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:54:56 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:54:56 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:54:56 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:54:56 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:54:56 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:56 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:54:56 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:55:01 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:55:02 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:55:42 [java] */ CREATE OR REPLACE PROCEDURE dummy_member_gen_proc()
+BEGIN
+	 
+	 START TRANSACTION;
+/* 2021-04-05 09:55:42 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 4 */
+/* 2021-04-05 09:55:42 [java] */ FOR i IN 1..100 
+	 DO
+        INSERT INTO member VALUES
+        (CONCAT('goodee_', (1000+i)),
+         '#Oracle1234',
+         '별명',
+         CONCAT('김', (100+i)),
+         'm',
+         CONCAT('goodee_',  i,  '@abcd.com'),
+         CONCAT('010-1234-', (1000+i)),
+         '1990-1-1',  
+         '12345',  
+         '서울 금천구 가산대로',
+         '구디아카데미',  
+         NOW());
+/* 2021-04-05 09:55:42 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 15 */
+/* 2021-04-05 09:55:42 [java] */ END FOR;
+/* 2021-04-05 09:55:42 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END FOR' at line 1 */
+/* 2021-04-05 09:55:42 [java] */ COMMIT;
+/* 2021-04-05 09:55:42 [java] */ END $$
+;
+/* 2021-04-05 09:55:42 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'END $$' at line 1 */
+/* 2021-04-05 09:55:42 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 4 of 5 쿼리: 0.000 초 */
+/* 2021-04-05 09:56:04 [java] */ CREATE OR REPLACE PROCEDURE dummy_member_gen_proc()
+BEGIN
+	 
+	 START TRANSACTION;
+	 
+    FOR i IN 1..100 
+	 DO
+        INSERT INTO member VALUES
+        (CONCAT('goodee_', (1000+i)),
+         '#Oracle1234',
+         '별명',
+         CONCAT('김', (100+i)),
+         'm',
+         CONCAT('goodee_',  i,  '@abcd.com'),
+         CONCAT('010-1234-', (1000+i)),
+         '1990-1-1',  
+         '12345',  
+         '서울 금천구 가산대로',
+         '구디아카데미',  
+         NOW());
+     END FOR;
+     
+     COMMIT;
+ 
+END ;
+/* 2021-04-05 09:56:04 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 쿼리: 0.016 초 */
+/* 2021-04-05 09:56:15 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:56:16 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:56:16 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:56:16 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 09:56:19 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 09:56:20 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 09:56:20 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 09:56:20 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:56:20 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 09:56:20 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 09:56:20 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 09:56:22 [java] */ SHOW CREATE PROCEDURE `bigdb`.`dummy_member_gen_proc`;
+/* 2021-04-05 09:56:27 [java] */ CALL `dummy_member_gen_proc`();
+/* 2021-04-05 09:56:27 [] */ /* 영향 받은 행: 100  찾은 행: 0  경고: 1  지속 시간 1 쿼리: 0.031 초 */
+/* 2021-04-05 09:56:27 [java] */ SHOW WARNINGS LIMIT 5;
+/* 2021-04-05 09:56:45 [java] */ CALL `dummy_member_gen_proc`();
+/* 2021-04-05 09:56:45 [java] */ /* SQL 오류 (1062): Duplicate entry 'goodee_1001' for key 'PRIMARY' */
+/* 2021-04-05 09:56:45 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-05 09:56:57 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 09:56:57 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 09:56:57 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:56:57 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 09:56:57 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 09:56:59 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:03:28 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:03:28 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:03:28 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:03:28 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:03:28 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:03:28 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:03:29 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:03:29 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:03:29 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:03:29 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:03:29 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:07:13 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:07:15 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:07:25 [java] */ ALTER TABLE `member`
+	CHANGE COLUMN `member_zip` `member_zip` CHAR(50) NULL DEFAULT NULL COLLATE 'utf8_general_ci' AFTER `member_birth`;
+/* 2021-04-05 11:07:25 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:07:25 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:07:25 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:07:25 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:07:25 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:07:25 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:07:25 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:07:25 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:07:25 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:07:25 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:07:25 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:07:25 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:07:30 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 11:07:33 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:20:36 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:20:39 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:20:39 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:20:39 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:20:39 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:20:39 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:20:39 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:20:39 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:20:39 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:20:39 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:20:39 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:20:39 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:20:40 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:20:45 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:20:48 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:20:48 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:20:48 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:20:48 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:20:48 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:20:48 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:20:48 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:20:50 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:20:50 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:20:50 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:20:50 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:20:50 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 11:20:52 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:32:27 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:32:30 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:32:30 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:32:30 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:32:30 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:32:30 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:32:30 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:32:30 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:32:35 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:32:35 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:32:35 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:32:35 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:32:35 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 11:32:38 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:36:13 [java] */ DELETE member WHERE member_id = 'java';
+/* 2021-04-05 11:36:13 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'WHERE member_id = 'java'' at line 1 */
+/* 2021-04-05 11:36:13 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-04-05 11:37:43 [] */ /* "java" 세션 시작 */
+/* 2021-04-05 11:37:44 [java] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-04-05 11:37:44 [java] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-04-05 11:37:44 [java] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:37:44 [java] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-04-05 11:37:44 [java] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-04-05 11:37:44 [java] */ SHOW EVENTS FROM `bigdb`;
+/* 2021-04-05 11:37:45 [java] */ SHOW FULL COLUMNS FROM `bigdb`.`member`;
+/* 2021-04-05 11:37:45 [java] */ SHOW INDEXES FROM `member` FROM `bigdb`;
+/* 2021-04-05 11:37:45 [java] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:37:45 [java] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bigdb'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-04-05 11:37:46 [java] */ SHOW CREATE TABLE `bigdb`.`member`;
+/* 2021-04-05 11:37:47 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 11:48:13 [java] */ SELECT  `member_id`,  `member_password`,  `member_nickname`,  `member_name`,  `member_gender`,  `member_email`,  `member_phone`,  `member_birth`,  `member_zip`,  LEFT(`member_address_basic`, 256),  LEFT(`member_address_detail`, 256),  `member_joindate` FROM `bigdb`.`member` LIMIT 1000;
+/* 2021-04-05 13:55:12 [java] */ SELECT conut(*) FROM member WHERE member_id = 'java';
+/* 2021-04-05 13:55:12 [java] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '*) FROM member WHERE member_id = 'java'' at line 1 */
+/* 2021-04-05 13:55:12 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
