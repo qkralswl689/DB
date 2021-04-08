@@ -1,13 +1,13 @@
 SELECT *  
 FROM (SELECT ROWNUM,  
 m.*, 
-FLOOR((ROWNUM - 1) / 1 + 1) page 
+FLOOR((ROWNUM - 1) / 10 + 1) page 
 				       FROM ( 
 				                SELECT * FROM member_tbl
 				                ORDER BY member_id ASC
 				              ) m  
 			    )  
-			WHERE page = 10;
+			WHERE page = 1;
             
 select *
 from member_tbl 
