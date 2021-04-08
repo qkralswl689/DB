@@ -83,4 +83,30 @@ insert into notice values(5, 'JSP에서 JDBC 사용하기', 'newlec', 'soso', sysdate,
 insert into notice values(6, '파라미터를 가지는 문장 실행하기', 'okay', 'aaa', sysdate, 1, '');
 insert into notice values(7, '추가요', 'dragon', 'aaa', sysdate, 44, '');
 insert into notice values(8, '디엔드', 'okay', 'aaa', sysdate, 55, '');
+
+insert into notice values(9, 'JDBC란 ?', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(10, ' 다운로드 방법', 'newlec', 'aaa', sysdate, 10, '');
+insert into notice values(11, ' 바랍니다.', 'newlec', '연락처 남깁니다. 010-2222-2333', sysdate, 22, '');
+insert into notice values(12, 'Service 계층', 'dragon', 'aaa', sysdate, 1, '');
+insert into notice values(13, 'JSP에서 JDBC 사용하기2', 'newlec', 'soso', sysdate, 33, '');
+insert into notice values(14, '파라미터를 가지는 문장 실행하기2', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(15, '추가요1', 'dragon', 'aaa', sysdate, 44, '');
+insert into notice values(16, '디엔드2', 'okay', 'aaa', sysdate, 55, '');
+
+insert into notice values(17, 'JDBC란 ?', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(18, ' 다운로드 방법', 'newlec', 'aaa', sysdate, 10, '');
+insert into notice values(19, ' 바랍니다.', 'newlec', '연락처 남깁니다. 010-2222-2333', sysdate, 22, '');
+insert into notice values(20, 'Service 계층', 'dragon', 'aaa', sysdate, 1, '');
+insert into notice values(21, 'JSP에서 JDBC 사용하기2', 'newlec', 'soso', sysdate, 33, '');
+insert into notice values(22, '파라미터를 가지는 문장 실행하기2', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(23, '추가요1', 'dragon', 'aaa', sysdate, 44, '');
+insert into notice values(24, '디엔드2', 'okay', 'aaa', sysdate, 55, '');
+insert into notice values(25, 'JDBC란 ?', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(26, ' 다운로드 방법', 'newlec', 'aaa', sysdate, 10, '');
+insert into notice values(27, ' 바랍니다.', 'newlec', '연락처 남깁니다. 010-2222-2333', sysdate, 22, '');
+insert into notice values(28, 'Service 계층', 'dragon', 'aaa', sysdate, 1, '');
+insert into notice values(29, 'JSP에서 JDBC 사용하기2', 'newlec', 'soso', sysdate, 33, '');
+insert into notice values(30, '파라미터를 가지는 문장 실행하기2', 'okay', 'aaa', sysdate, 1, '');
+insert into notice values(31, '추가요1', 'dragon', 'aaa', sysdate, 44, '');
+insert into notice values(32, '디엔드2', 'okay', 'aaa', sysdate, 55, '');
 commit;
