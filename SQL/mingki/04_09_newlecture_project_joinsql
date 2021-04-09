@@ -1,0 +1,21 @@
+-- notice위주의 조인문 
+SELECT N.ID, N.TITLE, N.writer_id,n.regdate,n.hit,n.files, COUNT(C.ID) CMT_COUNT from notice N
+LEFT JOIN "COMMENT" C ON N.ID =C.NOTICE_Id
+GROUP BY N.ID, N.TITLE, N.writer_id,n.regdate,n.hit,n.files
+order by N.regdate desc;
+
+-- notice위주의 조인문 으로 view생성 : order by는 빼는게 좋다
+create view notice_view
+AS 
+SELECT N.ID, N.TITLE, N.writer_id,n.regdate,n.hit,n.files, COUNT(C.ID) CMT_COUNT
+from notice N
+LEFT JOIN "COMMENT" C ON N.ID =C.NOTICE_Id
+GROUP BY N.ID, N.TITLE, N.writer_id,n.regdate,n.hit,n.files;
+--order by N.regdate desc;
+
+-- join과 결합
+SELECT * FROM( 
+         select rownum num, n.* 
+         from (select * from notice_view WHERE TITLE LIKE '%%' order by regdate desc) n
+         ) 
+where num between 1 and 36;

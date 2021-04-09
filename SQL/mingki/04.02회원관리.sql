@@ -26,7 +26,7 @@ CREATE TABLE user_role (
 );
 -- 관리자
 INSERT INTO member_tbl VALUES
-('admin12345','Admin12345!', '관리자',
+('admin1234','Admin1234!', '관리자',
  '관리자', 'm', 'abcd222@abcd.com', '010-1222-2333',
  '2000-05-22', '12345','서울 구로구*오라클자바교육센터',
  sysdate);
