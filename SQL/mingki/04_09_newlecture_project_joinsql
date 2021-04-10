@@ -19,3 +19,11 @@ SELECT * FROM(
          from (select * from notice_view WHERE TITLE LIKE '%%' order by regdate desc) n
          ) 
 where num between 1 and 36;
+
+-- 시퀀스 설정 확인
+INSERT INTO NOTICE(TITLE, WRITER_ID)
+VALUES('시퀀스 예제2','newlec');
+
+commit;
+
+SELECT NOTICE_ID_SEQ.nextval FROM DUAL;
