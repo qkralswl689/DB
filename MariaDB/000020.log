@@ -1,0 +1,403 @@
+/* 2021-05-28 16:05:24 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-05-28 16:05:24 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-05-28 16:05:28 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-05-28 16:05:28 [root] */ /* Access denied for user 'root'@'localhost' (using password: YES) */
+/* 2021-05-28 16:05:32 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-05-28 16:05:32 [root] */ /* Access denied for user 'root'@'localhost' (using password: YES) */
+/* 2021-05-28 16:05:35 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-05-28 16:05:35 [root] */ SELECT CONNECTION_ID();
+/* 2021-05-28 16:05:35 [root] */ /* 연결됨. 스레드-ID: 22 */
+/* 2021-05-28 16:05:35 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-05-28 16:05:35 [root] */ SHOW STATUS;
+/* 2021-05-28 16:05:35 [root] */ SELECT NOW();
+/* 2021-05-28 16:05:35 [root] */ SHOW VARIABLES;
+/* 2021-05-28 16:05:35 [root] */ SHOW DATABASES;
+/* 2021-05-28 16:05:35 [root] */ SHOW OPEN TABLES FROM dogshop WHERE `in_use`!=0;
+/* 2021-05-28 16:05:35 [root] */ USE `dogshop`;
+/* 2021-05-28 16:05:35 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:05:35 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='dogshop';
+/* 2021-05-28 16:05:35 [root] */ SHOW TABLE STATUS FROM `dogshop`;
+/* 2021-05-28 16:05:35 [root] */ SHOW FUNCTION STATUS WHERE `Db`='dogshop';
+/* 2021-05-28 16:05:36 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='dogshop';
+/* 2021-05-28 16:05:36 [root] */ SHOW TRIGGERS FROM `dogshop`;
+/* 2021-05-28 16:05:36 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-05-28 16:05:36 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-05-28 16:05:36 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:05:36 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:05:36 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-05-28 16:05:36 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-05-28 16:05:36 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='dogshop';
+/* 2021-05-28 16:05:36 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\04.04_mingki_dogshop.sql" (676 B) into query tab #1 ... */
+/* 2021-05-28 16:05:36 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\04_05_member_plsql_test2.sql" (1.7 KiB) into query tab #2 ... */
+/* 2021-05-28 16:06:04 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bigdb';
+/* 2021-05-28 16:06:04 [root] */ SHOW TABLE STATUS FROM `bigdb`;
+/* 2021-05-28 16:06:04 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bigdb';
+/* 2021-05-28 16:06:04 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bigdb';
+/* 2021-05-28 16:06:04 [root] */ SHOW TRIGGERS FROM `bigdb`;
+/* 2021-05-28 16:06:04 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bigdb';
+/* 2021-05-28 16:08:18 [root] */ dogCREATE TABLE dog(
+	id integer PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+	price integer NOT NULL,
+	image VARCHAR(20) NOT NULL,
+	country VARCHAR(12) NOT NULL,
+	height integer,
+	weight integer,
+	content VARCHAR(400),
+	readcount integer
+);
+/* 2021-05-28 16:08:18 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'dogCREATE TABLE dog(
+	id integer PRIMARY KEY,
+	kind VARCHAR(12) NOT NULL,
+...' at line 1 */
+/* 2021-05-28 16:08:18 [root] */ CREATE SEQUENCE dog_seq;
+/* 2021-05-28 16:08:18 [root] */ /* SQL 오류 (1050): Table 'dog_seq' already exists */
+/* 2021-05-28 16:08:18 [root] */ INSERT INTO dog VALUES(dog_seq.nextval,'푸들',1000,'pu.jpg','프랑스',1,20,'털많다',0);
+/* 2021-05-28 16:08:18 [root] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-05-28 16:08:18 [root] */ INSERT INTO dog VALUES(dog_seq.nextval,'불독',2000,'bul.jpg','독일',1,20,'못생겼다',0);
+/* 2021-05-28 16:08:18 [root] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-05-28 16:08:19 [root] */ INSERT INTO dog VALUES(dog_seq.nextval,'진도개',3000,'jin.jpg','대한민국',1,20,'최고다',0);
+/* 2021-05-28 16:08:19 [root] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-05-28 16:08:19 [root] */ INSERT INTO dog VALUES(dog_seq.nextval,'허스키',4000,'h.jpg','북극',1,20,'멋지다',0);
+/* 2021-05-28 16:08:19 [root] */ /* SQL 오류 (1054): Unknown column 'dog_seq.nextval' in 'field list' */
+/* 2021-05-28 16:08:22 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 7 쿼리: 0.000 초 */
+/* 2021-05-28 16:08:38 [root] */ diaryCREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:08:38 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'diaryCREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,...' at line 1 */
+/* 2021-05-28 16:08:38 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:08:58 [root] */ USE `scott`;
+/* 2021-05-28 16:09:07 [root] */ diaryCREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:09:07 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'diaryCREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,...' at line 1 */
+/* 2021-05-28 16:09:07 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:09:17 [root] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:09:17 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diary_shere boolean
+	
+)' at line 7 */
+/* 2021-05-28 16:09:17 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:09:20 [root] */ USE `bigdb`;
+/* 2021-05-28 16:10:19 [root] */ CREATE DATABASE diary;
+/* 2021-05-28 16:10:19 [root] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:10:19 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diary_shere boolean
+	
+)' at line 7 */
+/* 2021-05-28 16:10:19 [] */ /* 영향 받은 행: 1  찾은 행: 0  경고: 0  지속 시간 1 of 2 쿼리: 0.000 초 */
+/* 2021-05-28 16:10:27 [root] */ CREATE DATABASE diary
+
+CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:10:27 [root] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	dia...' at line 3 */
+/* 2021-05-28 16:10:27 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:10:31 [root] */ CREATE DATABASE diary
+;
+/* 2021-05-28 16:10:31 [root] */ /* SQL 오류 (1007): Can't create database 'diary'; database exists */
+/* 2021-05-28 16:10:32 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:11:00 [root] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:11:00 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-05-28 16:11:00 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-05-28 16:11:05 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-05-28 16:12:29 [root] */ CREATE DATABASE diary
+;
+/* 2021-05-28 16:12:29 [root] */ /* SQL 오류 (1007): Can't create database 'diary'; database exists */
+/* 2021-05-28 16:12:29 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:12:51 [root] */ SHOW COLLATION;
+/* 2021-05-28 16:13:03 [root] */ CREATE DATABASE `diary` /*!40100 COLLATE 'utf8_general_ci' */;
+/* 2021-05-28 16:13:03 [root] */ /* SQL 오류 (1007): Can't create database 'diary'; database exists */
+/* 2021-05-28 16:13:20 [root] */ USE `mysql`;
+/* 2021-05-28 16:13:26 [root] */ CREATE DATABASE `diary` /*!40100 COLLATE 'utf8_general_ci' */;
+/* 2021-05-28 16:13:26 [root] */ /* SQL 오류 (1007): Can't create database 'diary'; database exists */
+/* 2021-05-28 16:14:11 [root] */ CREATE DATABASE `diary1` /*!40100 COLLATE 'utf8_general_ci' */;
+/* 2021-05-28 16:14:12 [root] */ SHOW DATABASES;
+/* 2021-05-28 16:14:12 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:14:15 [root] */ USE `diary1`;
+/* 2021-05-28 16:14:17 [root] */ DROP DATABASE `diary1`;
+/* 2021-05-28 16:14:17 [root] */ SHOW DATABASES;
+/* 2021-05-28 16:14:18 [root] */ USE `diary`;
+/* 2021-05-28 16:14:19 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 16:14:19 [root] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 16:14:19 [root] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:14:19 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:14:19 [root] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 16:14:19 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='diary';
+/* 2021-05-28 16:14:35 [root] */ /* 127.0.0.1 의 연결이 2021-05-28 16:14:35 에 종료됨 */
+/* 2021-05-28 16:14:41 [mingki] */ /* [mingki] 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-05-28 16:14:41 [mingki] */ [mingki] SELECT CONNECTION_ID();
+/* 2021-05-28 16:14:41 [mingki] */ /* [mingki] 연결됨. 스레드-ID: 23 */
+/* 2021-05-28 16:14:41 [mingki] */ /* [mingki] 문자 집합: utf8mb4 */
+/* 2021-05-28 16:14:41 [mingki] */ [mingki] SHOW STATUS;
+/* 2021-05-28 16:14:41 [mingki] */ [mingki] SELECT NOW();
+/* 2021-05-28 16:14:41 [mingki] */ [mingki] SHOW VARIABLES;
+/* 2021-05-28 16:14:41 [mingki] */ [mingki] SHOW DATABASES;
+/* 2021-05-28 16:14:41 [mingki] */ /* [mingki] 127.0.0.1 의 연결이 2021-05-28 16:14:41 에 종료됨 */
+/* 2021-05-28 16:14:49 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-05-28 16:14:49 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-05-28 16:14:49 [mingki] */ /* 연결됨. 스레드-ID: 24 */
+/* 2021-05-28 16:14:49 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-05-28 16:14:49 [mingki] */ SHOW STATUS;
+/* 2021-05-28 16:14:49 [mingki] */ SELECT NOW();
+/* 2021-05-28 16:14:49 [mingki] */ SHOW VARIABLES;
+/* 2021-05-28 16:14:49 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 16:14:54 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 16:14:54 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 16:14:54 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:14:54 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:14:54 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 16:14:54 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 16:14:54 [mingki] */ /* SQL 오류 (1044): Access denied for user 'mingki'@'localhost' to database 'diary' */
+/* 2021-05-28 16:15:01 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:15:01 [mingki] */ /* SQL 오류 (1046): No database selected */
+/* 2021-05-28 16:15:01 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:15:06 [mingki] */ USE `diary`;
+/* 2021-05-28 16:15:21 [mingki] */ USE `diary`;
+/* 2021-05-28 16:15:35 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere boolean
+	
+);
+/* 2021-05-28 16:15:35 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diary_shere boolean
+	
+)' at line 7 */
+/* 2021-05-28 16:15:35 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:16:01 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere integer
+	
+);
+/* 2021-05-28 16:16:01 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diary_shere integer
+	
+)' at line 7 */
+/* 2021-05-28 16:16:01 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:16:29 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere integer);
+/* 2021-05-28 16:16:29 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diary_shere integer)' at line 7 */
+/* 2021-05-28 16:16:29 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:17:45 [mingki] */ CREATE TABLE 'diary'(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diary_shere integer);
+/* 2021-05-28 16:17:45 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ''diary'(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date dat...' at line 1 */
+/* 2021-05-28 16:17:45 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:19:21 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img varchar,
+	diaryshere integer);
+/* 2021-05-28 16:19:21 [mingki] */ /* SQL 오류 (1064): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '
+	diaryshere integer)' at line 7 */
+/* 2021-05-28 16:19:21 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:19:57 [mingki] */ CREATE TABLE diary(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img VARCHAR(500),
+	diary_shere integer);
+/* 2021-05-28 16:19:57 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'diary' */
+/* 2021-05-28 16:19:57 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:20:20 [mingki] */ CREATE TABLE diary_write(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img VARCHAR(500),
+	diary_shere integer);
+/* 2021-05-28 16:20:20 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'diary_write' */
+/* 2021-05-28 16:20:20 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:21:27 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-05-28 16:21:27 [root] */ SELECT CONNECTION_ID();
+/* 2021-05-28 16:21:27 [root] */ /* 연결됨. 스레드-ID: 25 */
+/* 2021-05-28 16:21:27 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-05-28 16:21:27 [root] */ SHOW STATUS;
+/* 2021-05-28 16:21:27 [root] */ SELECT NOW();
+/* 2021-05-28 16:21:27 [root] */ SHOW VARIABLES;
+/* 2021-05-28 16:21:27 [root] */ SHOW DATABASES;
+/* 2021-05-28 16:21:27 [root] */ SHOW OPEN TABLES FROM diary WHERE `in_use`!=0;
+/* 2021-05-28 16:21:27 [root] */ USE `diary`;
+/* 2021-05-28 16:21:27 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:21:27 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 16:21:27 [root] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 16:21:27 [root] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:21:27 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:21:27 [root] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 16:21:27 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-05-28 16:21:27 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-05-28 16:21:28 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:21:28 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:21:28 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-05-28 16:21:28 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-05-28 16:21:28 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='diary';
+/* 2021-05-28 16:21:31 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 16:21:43 [mingki] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:21:43 [mingki] */ /* SQL 오류 (1227): Access denied; you need (at least one of) the RELOAD privilege(s) for this operation */
+/* 2021-05-28 16:21:46 [root] */ USE `bigdb`;
+/* 2021-05-28 16:21:46 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:21:48 [root] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:21:48 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-05-28 16:21:48 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-05-28 16:21:50 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-05-28 16:22:21 [root] */ REVOKE EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, GRANT OPTION, LOCK TABLES  ON `dogshop`.* FROM 'mingki'@'localhost';
+/* 2021-05-28 16:22:21 [root] */ GRANT EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, LOCK TABLES  ON `diary`.* TO 'mingki'@'localhost' WITH GRANT OPTION;
+/* 2021-05-28 16:22:21 [root] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:22:21 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-05-28 16:22:27 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 16:22:32 [mingki] */ CREATE TABLE diary_write(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img VARCHAR(500),
+	diary_shere integer);
+/* 2021-05-28 16:22:32 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'diary_write' */
+/* 2021-05-28 16:22:32 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:22:42 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:22:43 [root] */ /* 127.0.0.1 의 연결이 2021-05-28 16:22:43 에 종료됨 */
+/* 2021-05-28 16:22:43 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 16:22:45 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 16:22:48 [mingki] */ CREATE TABLE diary_write(
+	diary_id integer PRIMARY KEY,
+	diary_no integer,
+	diary_date date NOT NULL,
+	diary_title VARCHAR(20) NOT NULL,
+	diary_content VARCHAR(500) NOT NULL,
+	diary_img VARCHAR(500),
+	diary_shere integer);
+/* 2021-05-28 16:22:48 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'diary_write' */
+/* 2021-05-28 16:22:48 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-05-28 16:22:54 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 16:22:54 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 16:22:54 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:22:54 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:22:54 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 16:22:54 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 16:22:54 [mingki] */ /* SQL 오류 (1044): Access denied for user 'mingki'@'localhost' to database 'diary' */
+/* 2021-05-28 16:22:57 [mingki] */ /* 127.0.0.1 의 연결이 2021-05-28 16:22:57 에 종료됨 */
+/* 2021-05-28 16:23:00 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-05-28 16:23:00 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-05-28 16:23:03 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-05-28 16:23:03 [root] */ SELECT CONNECTION_ID();
+/* 2021-05-28 16:23:03 [root] */ /* 연결됨. 스레드-ID: 27 */
+/* 2021-05-28 16:23:03 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-05-28 16:23:03 [root] */ SHOW STATUS;
+/* 2021-05-28 16:23:03 [root] */ SELECT NOW();
+/* 2021-05-28 16:23:03 [root] */ SHOW VARIABLES;
+/* 2021-05-28 16:23:03 [root] */ SHOW DATABASES;
+/* 2021-05-28 16:23:03 [] */ /* "root" 세션 시작 */
+/* 2021-05-28 16:23:05 [root] */ USE `diary`;
+/* 2021-05-28 16:23:06 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 16:23:06 [root] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 16:23:06 [root] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:23:06 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 16:23:06 [root] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 16:23:06 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-05-28 16:23:06 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-05-28 16:23:06 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:23:06 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-05-28 16:23:06 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-05-28 16:23:06 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-05-28 16:23:06 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='diary';
+/* 2021-05-28 16:23:15 [root] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:23:15 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-05-28 16:23:15 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-05-28 16:23:16 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-05-28 16:23:26 [root] */ FLUSH PRIVILEGES;
+/* 2021-05-28 16:23:26 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-05-28 16:23:27 [root] */ SHOW GRANTS FOR 'mariadb.sys'@'localhost';
+/* 2021-05-28 16:23:27 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='mysql';
+/* 2021-05-28 16:23:27 [root] */ SHOW TABLE STATUS FROM `mysql`;
+/* 2021-05-28 16:23:27 [root] */ SHOW FUNCTION STATUS WHERE `Db`='mysql';
+/* 2021-05-28 16:23:27 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='mysql';
+/* 2021-05-28 16:23:27 [root] */ SHOW TRIGGERS FROM `mysql`;
+/* 2021-05-28 16:23:27 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='mysql';
+/* 2021-05-28 16:23:30 [root] */ SHOW GRANTS FOR 'root'@'mingki';

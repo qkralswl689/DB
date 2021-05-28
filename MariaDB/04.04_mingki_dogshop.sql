@@ -17,3 +17,4 @@ INSERT INTO dog VALUES(dog_seq.nextval,'불독',2000,'bul.jpg','독일',1,20,'�
 INSERT INTO dog VALUES(dog_seq.nextval,'진도개',3000,'jin.jpg','대한민국',1,20,'최고다',0);
 INSERT INTO dog VALUES(dog_seq.nextval,'허스키',4000,'h.jpg','북극',1,20,'멋지다',0);
 COMMIT
+
