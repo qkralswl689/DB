@@ -1,0 +1,74 @@
+/* 2021-05-28 18:19:05 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-05-28 18:19:05 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-05-28 18:19:05 [mingki] */ /* 연결됨. 스레드-ID: 13 */
+/* 2021-05-28 18:19:05 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-05-28 18:19:05 [mingki] */ SHOW STATUS;
+/* 2021-05-28 18:19:05 [mingki] */ SELECT NOW();
+/* 2021-05-28 18:19:05 [mingki] */ SHOW VARIABLES;
+/* 2021-05-28 18:19:05 [mingki] */ SHOW OPEN TABLES FROM diary WHERE `in_use`!=0;
+/* 2021-05-28 18:19:05 [mingki] */ USE `diary`;
+/* 2021-05-28 18:19:05 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:19:05 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:19:05 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:19:05 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:19:06 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:19:06 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:19:06 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 18:19:26 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`diary`;
+/* 2021-05-28 18:19:26 [mingki] */ SHOW INDEXES FROM `diary` FROM `diary`;
+/* 2021-05-28 18:19:26 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:19:27 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:19:27 [mingki] */ SHOW ENGINES;
+/* 2021-05-28 18:19:27 [mingki] */ SHOW COLLATION;
+/* 2021-05-28 18:19:27 [mingki] */ SHOW CREATE TABLE `diary`.`diary`;
+/* 2021-05-28 18:37:24 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:37:24 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:37:24 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:24 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:24 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:37:24 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 18:37:25 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`diary`;
+/* 2021-05-28 18:37:25 [mingki] */ SHOW INDEXES FROM `diary` FROM `diary`;
+/* 2021-05-28 18:37:25 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:37:25 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:37:25 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:37:27 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:37:27 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:37:27 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:27 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:27 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:37:27 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 18:37:27 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`diary`;
+/* 2021-05-28 18:37:27 [mingki] */ SHOW INDEXES FROM `diary` FROM `diary`;
+/* 2021-05-28 18:37:27 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:37:27 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diary'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-05-28 18:37:27 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:37:30 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:37:31 [mingki] */ USE `diary`;
+/* 2021-05-28 18:37:31 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:37:31 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:37:31 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:31 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:37:31 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:37:31 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 18:38:17 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:38:17 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:38:17 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:38:17 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:38:17 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:38:17 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:38:17 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 18:40:19 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 18:40:19 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 18:40:19 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 18:40:19 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:40:19 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 18:40:19 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 18:40:19 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-05-28 20:17:48 [] */ /* "mingki" 세션 시작 */
+/* 2021-05-28 20:17:48 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-05-28 20:17:48 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-05-28 20:17:48 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-05-28 20:17:48 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-05-28 20:17:48 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-05-28 20:17:48 [mingki] */ SHOW EVENTS FROM `diary`;
