@@ -1,0 +1,29 @@
+/* 2021-06-02 20:57:52 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-06-02 20:57:52 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-06-02 20:57:52 [mingki] */ /* 연결됨. 스레드-ID: 306 */
+/* 2021-06-02 20:57:52 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-06-02 20:57:52 [mingki] */ SHOW STATUS;
+/* 2021-06-02 20:57:52 [mingki] */ SELECT NOW();
+/* 2021-06-02 20:57:52 [mingki] */ SHOW VARIABLES;
+/* 2021-06-02 20:57:52 [mingki] */ SHOW OPEN TABLES FROM diary WHERE `in_use`!=0;
+/* 2021-06-02 20:57:52 [mingki] */ USE `diary`;
+/* 2021-06-02 20:57:52 [] */ /* "mingki" 세션 시작 */
+/* 2021-06-02 20:57:52 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-06-02 20:57:53 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-06-02 20:57:53 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-06-02 20:57:53 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-06-02 20:57:53 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-06-02 20:57:53 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-06-02 20:57:55 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`diaryvo`;
+/* 2021-06-02 20:57:55 [mingki] */ SHOW INDEXES FROM `diaryvo` FROM `diary`;
+/* 2021-06-02 20:57:55 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diaryvo'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-06-02 20:57:55 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='diaryvo'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-06-02 20:57:55 [mingki] */ SHOW ENGINES;
+/* 2021-06-02 20:57:55 [mingki] */ SHOW COLLATION;
+/* 2021-06-02 20:57:56 [mingki] */ SHOW CREATE TABLE `diary`.`diaryvo`;
+/* 2021-06-02 20:58:00 [mingki] */ SELECT * FROM `diary`.`diaryvo` LIMIT 1000;
+/* 2021-06-02 20:58:07 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`hibernate_sequence`;
+/* 2021-06-02 20:58:07 [mingki] */ SHOW INDEXES FROM `hibernate_sequence` FROM `diary`;
+/* 2021-06-02 20:58:07 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='hibernate_sequence'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-06-02 20:58:07 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='hibernate_sequence'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-06-02 20:58:07 [mingki] */ SHOW CREATE TABLE `diary`.`hibernate_sequence`;
