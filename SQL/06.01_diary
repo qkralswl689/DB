@@ -1,0 +1,15 @@
+create table demo(
+id number(4) primary key,
+name varchar2(50) not null
+)
+
+create sequence demo_seq
+start with 1
+increment by 1;
+
+
+insert into demo values(demo_seq.nextval, 'È«±æµ¿');
+insert into demo values(demo_seq.nextval, 'Àå±æ»ê');
+insert into demo values(demo_seq.nextval, 'ÀÓ²©Á¤');
+insert into demo values(demo_seq.nextval, '·ùÇöÁø');
+insert into demo values(demo_seq.nextval, '±è±¤Çö');
