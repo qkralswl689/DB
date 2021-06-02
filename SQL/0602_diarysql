@@ -10,3 +10,14 @@ insert into demo values(demo_seq.nextval, 'ÀÓ²©Á¤');
 insert into demo values(demo_seq.nextval, '·ùÇöÁø');
 insert into demo values(demo_seq.nextval, '±è±¤Çö');
 insert into demo values(demo_seq.nextval, '¹èÇö');
+
+create table DiaryVO(
+diaryTitle VARCHAR2(50) not null,
+diaryContent varchar2(1000) not null,
+diaryDate DATE 
+);
+
+drop table DiaryVO;
+
+alter table DiaryVO drop COLUMN DIARY_TITLE;
+alter table DiaryVO drop COLUMN DIARY_DATE;
