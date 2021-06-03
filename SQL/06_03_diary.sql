@@ -9,3 +9,5 @@ CREATE TABLE tb_board (
     delete_time DATE NULL ,
     PRIMARY KEY (idx)
 );
+
+commit;
