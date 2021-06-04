@@ -31,4 +31,5 @@
 /* 2021-06-04 14:22:37 [mingki] */ SHOW TABLE STATUS FROM `diary`;
 /* 2021-06-04 14:22:37 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
 /* 2021-06-04 14:22:37 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
-/* 2021-06-04 
+/* 2021-06-04 14:22:37 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-06-04 14:22:37 [mingki] */ SHOW EVENTS FROM `diary`;

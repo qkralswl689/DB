@@ -11,3 +11,30 @@ CREATE TABLE tb_board (
 );
 
 commit;
+
+drop table diaryvo;
+create table diaryvo(
+    id number,
+    author VARCHAR(20),
+    title VARCHAR(100),
+    content VARCHAR(500)
+);
+
+create table board (
+       id number(19,0) not null,
+        author varchar2(10 char) not null,
+        content TEXT not null,
+        created_date timestamp,
+        modified_date timestamp,
+        title varchar2(100 char) not null,
+        primary key (id)
+    );
+    
+create table board (
+        id number(19,0) primary key,
+        author varchar2(10 char) not null,
+        content TEXT not null,
+        created_date date,
+        modified_date date,
+        title varchar2(100 char) not null
+);
