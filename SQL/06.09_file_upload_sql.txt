@@ -1,0 +1,6 @@
+create table file_upload(
+ID number(19,0),
+FILE_PATH varchar2(255 char) ,
+FILENAME varchar2(255 char),
+ORIG_FILENAME varchar2(255 char)
+);
