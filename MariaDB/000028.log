@@ -1,0 +1,16 @@
+/* 2021-06-13 00:24:01 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-06-13 00:24:01 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-06-13 00:24:01 [mingki] */ /* 연결됨. 스레드-ID: 3 */
+/* 2021-06-13 00:24:01 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-06-13 00:24:01 [mingki] */ SHOW STATUS;
+/* 2021-06-13 00:24:01 [mingki] */ SELECT NOW();
+/* 2021-06-13 00:24:01 [mingki] */ SHOW VARIABLES;
+/* 2021-06-13 00:24:01 [mingki] */ SHOW OPEN TABLES FROM diary WHERE `in_use`!=0;
+/* 2021-06-13 00:24:01 [mingki] */ USE `diary`;
+/* 2021-06-13 00:24:01 [] */ /* "mingki" 세션 시작 */
+/* 2021-06-13 00:24:01 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-06-13 00:24:01 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-06-13 00:24:01 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-06-13 00:24:01 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-06-13 00:24:01 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-06-13 00:24:01 [mingki] */ SHOW EVENTS FROM `diary`;
