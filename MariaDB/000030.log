@@ -1,0 +1,66 @@
+/* 2021-07-02 19:39:46 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-07-02 19:39:46 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-07-02 19:39:46 [mingki] */ /* 연결됨. 스레드-ID: 63 */
+/* 2021-07-02 19:39:46 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-02 19:39:46 [mingki] */ SHOW STATUS;
+/* 2021-07-02 19:39:46 [mingki] */ SELECT NOW();
+/* 2021-07-02 19:39:46 [mingki] */ SHOW VARIABLES;
+/* 2021-07-02 19:39:46 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 19:39:46 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (276 B) into query tab #1 ... */
+/* 2021-07-02 19:39:50 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:39:50 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:39:50 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:39:50 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:39:50 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:39:50 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 19:39:50 [mingki] */ /* SQL 오류 (1044): Access denied for user 'mingki'@'localhost' to database 'bootex' */
+/* 2021-07-02 19:40:33 [mingki] */ create table guestbook (
+       gno bigint not null auto_increment,
+        moddate datetime(6),
+        regdate datetime(6),
+        content varchar(1500) not null,
+        title varchar(100) not null,
+        writer varchar(50) not null,
+        primary key (gno)
+);
+/* 2021-07-02 19:40:33 [mingki] */ /* SQL 오류 (1046): No database selected */
+/* 2021-07-02 19:40:33 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 0 of 1 쿼리: 0.000 초 */
+/* 2021-07-02 19:40:45 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-07-02 19:40:45 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-07-02 19:40:45 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-07-02 19:40:45 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-07-02 19:40:45 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-07-02 19:40:45 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-07-02 19:41:32 [mingki] */ USE bootex;
+/* 2021-07-02 19:41:32 [mingki] */ create table guestbook (
+       gno bigint not null auto_increment,
+        moddate datetime(6),
+        regdate datetime(6),
+        content varchar(1500) not null,
+        title varchar(100) not null,
+        writer varchar(50) not null,
+        primary key (gno)
+);
+/* 2021-07-02 19:41:32 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'guestbook' */
+/* 2021-07-02 19:41:32 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 of 2 쿼리: 0.000 초 */
+/* 2021-07-02 19:41:44 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 19:41:47 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:41:47 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:41:47 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:41:47 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:41:47 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:41:47 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 19:41:47 [mingki] */ /* SQL 오류 (1044): Access denied for user 'mingki'@'localhost' to database 'bootex' */
+/* 2021-07-02 19:42:31 [mingki] */ USE bootex;
+/* 2021-07-02 19:42:31 [mingki] */ create table guestbook (
+       gno bigint not null auto_increment,
+        moddate datetime(6),
+        regdate datetime(6),
+        content varchar(1500) not null,
+        title varchar(100) not null,
+        writer varchar(50) not null,
+        primary key (gno)
+    ) ;
+/* 2021-07-02 19:42:31 [mingki] */ /* SQL 오류 (1142): CREATE command denied to user 'mingki'@'localhost' for table 'guestbook' */
+/* 2021-07-02 19:42:31 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 1 of 2 쿼리: 0.000 초 */
+/* 2021-07-02 19:42:55 [mingki] */ /* 127.0.0.1 의 연결이 2021-07-02 19:42:55 에 종료됨 */

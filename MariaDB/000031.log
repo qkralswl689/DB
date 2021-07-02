@@ -1,0 +1,131 @@
+/* 2021-07-02 19:43:11 [scott] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "scott", 암호 사용: Yes… */
+/* 2021-07-02 19:43:11 [scott] */ SELECT CONNECTION_ID();
+/* 2021-07-02 19:43:11 [scott] */ /* 연결됨. 스레드-ID: 64 */
+/* 2021-07-02 19:43:11 [scott] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-02 19:43:11 [scott] */ SHOW STATUS;
+/* 2021-07-02 19:43:11 [scott] */ SELECT NOW();
+/* 2021-07-02 19:43:11 [scott] */ SHOW VARIABLES;
+/* 2021-07-02 19:43:11 [scott] */ SHOW OPEN TABLES FROM scott WHERE `in_use`!=0;
+/* 2021-07-02 19:43:11 [scott] */ USE `scott`;
+/* 2021-07-02 19:43:11 [] */ /* "scott" 세션 시작 */
+/* 2021-07-02 19:43:11 [scott] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='scott';
+/* 2021-07-02 19:43:11 [scott] */ SHOW TABLE STATUS FROM `scott`;
+/* 2021-07-02 19:43:11 [scott] */ SHOW FUNCTION STATUS WHERE `Db`='scott';
+/* 2021-07-02 19:43:11 [scott] */ SHOW PROCEDURE STATUS WHERE `Db`='scott';
+/* 2021-07-02 19:43:11 [scott] */ SHOW TRIGGERS FROM `scott`;
+/* 2021-07-02 19:43:11 [scott] */ SHOW EVENTS FROM `scott`;
+/* 2021-07-02 19:43:11 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (295 B) into query tab #1 ... */
+/* 2021-07-02 19:43:16 [scott] */ /* 127.0.0.1 의 연결이 2021-07-02 19:43:16 에 종료됨 */
+/* 2021-07-02 19:43:19 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: No… */
+/* 2021-07-02 19:43:19 [root] */ /* Access denied for user 'root'@'localhost' (using password: NO) */
+/* 2021-07-02 19:43:25 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-07-02 19:43:25 [root] */ /* Access denied for user 'root'@'localhost' (using password: YES) */
+/* 2021-07-02 19:43:28 [root] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "root", 암호 사용: Yes… */
+/* 2021-07-02 19:43:28 [root] */ SELECT CONNECTION_ID();
+/* 2021-07-02 19:43:28 [root] */ /* 연결됨. 스레드-ID: 67 */
+/* 2021-07-02 19:43:28 [root] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-02 19:43:28 [root] */ SHOW STATUS;
+/* 2021-07-02 19:43:28 [root] */ SELECT NOW();
+/* 2021-07-02 19:43:28 [root] */ SHOW VARIABLES;
+/* 2021-07-02 19:43:28 [root] */ SHOW DATABASES;
+/* 2021-07-02 19:43:28 [root] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-07-02 19:43:28 [root] */ USE `bootex`;
+/* 2021-07-02 19:43:28 [] */ /* "root" 세션 시작 */
+/* 2021-07-02 19:43:28 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:43:28 [root] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:43:28 [root] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:43:28 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:43:28 [root] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:43:28 [root] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='information_schema';
+/* 2021-07-02 19:43:28 [root] */ SHOW TABLE STATUS FROM `information_schema`;
+/* 2021-07-02 19:43:29 [root] */ SHOW FUNCTION STATUS WHERE `Db`='information_schema';
+/* 2021-07-02 19:43:29 [root] */ SHOW PROCEDURE STATUS WHERE `Db`='information_schema';
+/* 2021-07-02 19:43:29 [root] */ SHOW TRIGGERS FROM `information_schema`;
+/* 2021-07-02 19:43:29 [root] */ SHOW EVENTS FROM `information_schema`;
+/* 2021-07-02 19:43:29 [root] */ SELECT *, EVENT_SCHEMA AS `Db`, EVENT_NAME AS `Name` FROM information_schema.`EVENTS` WHERE `EVENT_SCHEMA`='bootex';
+/* 2021-07-02 19:43:32 [root] */ FLUSH PRIVILEGES;
+/* 2021-07-02 19:43:32 [root] */ SHOW COLUMNS FROM `mysql`.`user`;
+/* 2021-07-02 19:43:32 [root] */ SELECT `user`, `host`, IF(LENGTH(password)>0, password, authentication_string) AS `password` FROM `mysql`.`user`;
+/* 2021-07-02 19:43:35 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-07-02 19:44:04 [root] */ GRANT EXECUTE, SELECT, SHOW VIEW, ALTER, ALTER ROUTINE, CREATE, CREATE ROUTINE, CREATE TEMPORARY TABLES, CREATE VIEW, DELETE, DROP, EVENT, INDEX, INSERT, REFERENCES, TRIGGER, UPDATE, LOCK TABLES  ON `bootex`.* TO 'mingki'@'localhost' WITH GRANT OPTION;
+/* 2021-07-02 19:44:04 [root] */ SET PASSWORD FOR 'mingki'@'localhost' = PASSWORD('1234');
+/* 2021-07-02 19:44:04 [root] */ FLUSH PRIVILEGES;
+/* 2021-07-02 19:44:04 [root] */ SHOW GRANTS FOR 'mingki'@'localhost';
+/* 2021-07-02 19:44:07 [root] */ /* 127.0.0.1 의 연결이 2021-07-02 19:44:07 에 종료됨 */
+/* 2021-07-02 19:44:11 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-07-02 19:44:11 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-07-02 19:44:11 [mingki] */ /* 연결됨. 스레드-ID: 68 */
+/* 2021-07-02 19:44:11 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-02 19:44:11 [mingki] */ SHOW STATUS;
+/* 2021-07-02 19:44:12 [mingki] */ SELECT NOW();
+/* 2021-07-02 19:44:12 [mingki] */ SHOW VARIABLES;
+/* 2021-07-02 19:44:12 [mingki] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-07-02 19:44:12 [mingki] */ USE `bootex`;
+/* 2021-07-02 19:44:12 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 19:44:12 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:44:12 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:44:12 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:12 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:12 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:44:12 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 19:44:15 [mingki] */ USE bootex;
+/* 2021-07-02 19:44:15 [mingki] */ create table guestbook (
+       gno bigint not null auto_increment,
+        moddate datetime(6),
+        regdate datetime(6),
+        content varchar(1500) not null,
+        title varchar(100) not null,
+        writer varchar(50) not null,
+        primary key (gno)
+    ) ;
+/* 2021-07-02 19:44:15 [] */ /* 영향 받은 행: 0  찾은 행: 0  경고: 0  지속 시간 2 쿼리: 0.032 초 */
+/* 2021-07-02 19:44:21 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 19:44:22 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:44:22 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:44:22 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:22 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:22 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:44:22 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 19:44:23 [mingki] */ USE `bootex`;
+/* 2021-07-02 19:44:23 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`guestbook`;
+/* 2021-07-02 19:44:23 [mingki] */ SHOW INDEXES FROM `guestbook` FROM `bootex`;
+/* 2021-07-02 19:44:23 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 19:44:23 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 19:44:23 [mingki] */ SHOW ENGINES;
+/* 2021-07-02 19:44:23 [mingki] */ SHOW COLLATION;
+/* 2021-07-02 19:44:23 [mingki] */ SHOW CREATE TABLE `bootex`.`guestbook`;
+/* 2021-07-02 19:44:47 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 19:44:47 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 19:44:47 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:47 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 19:44:47 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 19:44:47 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 19:44:48 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`guestbook`;
+/* 2021-07-02 19:44:48 [mingki] */ SHOW INDEXES FROM `guestbook` FROM `bootex`;
+/* 2021-07-02 19:44:48 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 19:44:48 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 19:44:48 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 19:44:50 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` LIMIT 1000;
+/* 2021-07-02 20:20:00 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-02 20:20:00 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-02 20:20:00 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-02 20:20:01 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-02 20:20:01 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-02 20:20:01 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-02 20:20:01 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`guestbook`;
+/* 2021-07-02 20:20:01 [mingki] */ SHOW INDEXES FROM `guestbook` FROM `bootex`;
+/* 2021-07-02 20:20:01 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 20:20:01 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-02 20:20:01 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` LIMIT 1000;
+/* 2021-07-02 20:20:01 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-02 20:20:08 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `regdate` ASC LIMIT 1000;
+/* 2021-07-02 20:20:09 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `regdate` ASC, `moddate` ASC LIMIT 1000;
+/* 2021-07-02 20:20:11 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `regdate` DESC, `moddate` ASC LIMIT 1000;
+/* 2021-07-02 20:20:12 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `regdate` DESC, `moddate` DESC LIMIT 1000;
+/* 2021-07-02 20:20:13 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `moddate` DESC LIMIT 1000;
+/* 2021-07-02 20:20:14 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `moddate` DESC, `gno` ASC LIMIT 1000;
+/* 2021-07-02 20:20:15 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `moddate` DESC, `gno` DESC LIMIT 1000;
+/* 2021-07-02 20:20:16 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `gno` DESC LIMIT 1000;
+/* 2021-07-02 20:20:18 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `gno` DESC, `regdate` ASC LIMIT 1000;
+/* 2021-07-02 20:24:43 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `gno` DESC, `regdate` ASC LIMIT 1000;
+/* 2021-07-02 21:13:58 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `gno` DESC, `regdate` ASC LIMIT 1000;
