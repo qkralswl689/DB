@@ -1,0 +1,61 @@
+/* 2021-07-14 19:38:22 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-07-14 19:38:22 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-07-14 19:38:22 [mingki] */ /* 연결됨. 스레드-ID: 669 */
+/* 2021-07-14 19:38:22 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-14 19:38:22 [mingki] */ SHOW STATUS;
+/* 2021-07-14 19:38:22 [mingki] */ SELECT NOW();
+/* 2021-07-14 19:38:22 [mingki] */ SHOW VARIABLES;
+/* 2021-07-14 19:38:22 [mingki] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-07-14 19:38:22 [mingki] */ USE `bootex`;
+/* 2021-07-14 19:38:22 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-14 19:38:22 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-14 19:38:23 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-14 19:38:23 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-14 19:38:23 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-14 19:38:23 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-14 19:38:23 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-14 19:38:23 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (295 B) into query tab #1 ... */
+/* 2021-07-14 19:38:34 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`member`;
+/* 2021-07-14 19:38:34 [mingki] */ SHOW INDEXES FROM `member` FROM `bootex`;
+/* 2021-07-14 19:38:34 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 19:38:34 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 19:38:34 [mingki] */ SHOW ENGINES;
+/* 2021-07-14 19:38:34 [mingki] */ SHOW COLLATION;
+/* 2021-07-14 19:38:35 [mingki] */ SHOW CREATE TABLE `bootex`.`member`;
+/* 2021-07-14 19:38:39 [mingki] */ SELECT * FROM `bootex`.`member` ORDER BY `email` ASC, `name` DESC LIMIT 1000;
+/* 2021-07-14 19:39:05 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`board`;
+/* 2021-07-14 19:39:05 [mingki] */ SHOW INDEXES FROM `board` FROM `bootex`;
+/* 2021-07-14 19:39:06 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='board'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 19:39:06 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='board'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 19:39:06 [mingki] */ SHOW CREATE TABLE `bootex`.`board`;
+/* 2021-07-14 19:39:06 [mingki] */ SELECT * FROM `bootex`.`board` ORDER BY `bno` DESC LIMIT 1000;
+/* 2021-07-14 20:40:17 [mingki] */ USE `diary`;
+/* 2021-07-14 20:40:17 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-07-14 20:40:17 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-07-14 20:40:18 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-07-14 20:40:18 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-07-14 20:40:18 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-07-14 20:40:18 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-07-14 20:40:18 [mingki] */ USE `bootex`;
+/* 2021-07-14 20:40:18 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`reply`;
+/* 2021-07-14 20:40:18 [mingki] */ SHOW INDEXES FROM `reply` FROM `bootex`;
+/* 2021-07-14 20:40:18 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 20:40:18 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 20:40:18 [mingki] */ SHOW CREATE TABLE `bootex`.`reply`;
+/* 2021-07-14 20:40:20 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:42:37 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:42:40 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:55:16 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:55:17 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:55:21 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-14 20:55:21 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-14 20:55:21 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-14 20:55:21 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-14 20:55:21 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-14 20:55:21 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-14 20:55:21 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`reply`;
+/* 2021-07-14 20:55:21 [mingki] */ SHOW INDEXES FROM `reply` FROM `bootex`;
+/* 2021-07-14 20:55:21 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 20:55:21 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-14 20:55:21 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-14 20:55:21 [] */ /* "mingki" 세션 시작 */
