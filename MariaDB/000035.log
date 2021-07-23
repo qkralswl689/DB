@@ -1,0 +1,28 @@
+/* 2021-07-19 19:55:56 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-07-19 19:55:56 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-07-19 19:55:56 [mingki] */ /* 연결됨. 스레드-ID: 53 */
+/* 2021-07-19 19:55:56 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-19 19:55:56 [mingki] */ SHOW STATUS;
+/* 2021-07-19 19:55:56 [mingki] */ SELECT NOW();
+/* 2021-07-19 19:55:56 [mingki] */ SHOW VARIABLES;
+/* 2021-07-19 19:55:56 [mingki] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-07-19 19:55:56 [mingki] */ USE `bootex`;
+/* 2021-07-19 19:55:56 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-19 19:55:56 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-19 19:55:56 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-19 19:55:56 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-19 19:55:56 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-19 19:55:56 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-19 19:55:57 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-19 19:55:57 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (295 B) into query tab #1 ... */
+/* 2021-07-19 19:57:33 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`reply`;
+/* 2021-07-19 19:57:33 [mingki] */ SHOW INDEXES FROM `reply` FROM `bootex`;
+/* 2021-07-19 19:57:33 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-19 19:57:33 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-19 19:57:33 [mingki] */ SHOW ENGINES;
+/* 2021-07-19 19:57:33 [mingki] */ SHOW COLLATION;
+/* 2021-07-19 19:57:33 [mingki] */ SHOW CREATE TABLE `bootex`.`reply`;
+/* 2021-07-19 19:57:36 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `board_bno` DESC, `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-19 19:57:38 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `rno` ASC, `text` DESC LIMIT 1000;
+/* 2021-07-19 19:57:39 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `rno` ASC, `text` DESC, `board_bno` ASC LIMIT 1000;
+/* 2021-07-19 19:57:40 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `rno` ASC, `text` DESC, `board_bno` DESC LIMIT 1000;
