@@ -1,0 +1,37 @@
+/* 2021-08-01 22:04:54 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-08-01 22:04:54 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-08-01 22:04:54 [mingki] */ /* 연결됨. 스레드-ID: 114 */
+/* 2021-08-01 22:04:54 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-08-01 22:04:54 [mingki] */ SHOW STATUS;
+/* 2021-08-01 22:04:54 [mingki] */ SELECT NOW();
+/* 2021-08-01 22:04:54 [mingki] */ SHOW VARIABLES;
+/* 2021-08-01 22:04:54 [mingki] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-08-01 22:04:54 [mingki] */ USE `bootex`;
+/* 2021-08-01 22:04:54 [] */ /* "mingki" 세션 시작 */
+/* 2021-08-01 22:04:54 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-08-01 22:04:54 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-08-01 22:04:54 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-08-01 22:04:54 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-08-01 22:04:54 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-08-01 22:04:55 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-08-01 22:04:55 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (295 B) into query tab #1 ... */
+/* 2021-08-01 22:05:00 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='diary';
+/* 2021-08-01 22:05:00 [mingki] */ SHOW TABLE STATUS FROM `diary`;
+/* 2021-08-01 22:05:00 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='diary';
+/* 2021-08-01 22:05:00 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='diary';
+/* 2021-08-01 22:05:00 [mingki] */ SHOW TRIGGERS FROM `diary`;
+/* 2021-08-01 22:05:00 [mingki] */ SHOW EVENTS FROM `diary`;
+/* 2021-08-01 22:05:04 [mingki] */ USE `diary`;
+/* 2021-08-01 22:05:05 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`movie_image`;
+/* 2021-08-01 22:05:05 [mingki] */ SHOW INDEXES FROM `movie_image` FROM `diary`;
+/* 2021-08-01 22:05:05 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='movie_image'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-01 22:05:05 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='movie_image'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-01 22:05:05 [mingki] */ SHOW ENGINES;
+/* 2021-08-01 22:05:05 [mingki] */ SHOW COLLATION;
+/* 2021-08-01 22:05:05 [mingki] */ SHOW CREATE TABLE `diary`.`movie_image`;
+/* 2021-08-01 22:05:08 [mingki] */ SHOW FULL COLUMNS FROM `diary`.`movie`;
+/* 2021-08-01 22:05:08 [mingki] */ SHOW INDEXES FROM `movie` FROM `diary`;
+/* 2021-08-01 22:05:08 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='movie'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-01 22:05:08 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='diary'   AND TABLE_NAME='movie'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-01 22:05:09 [mingki] */ SHOW CREATE TABLE `diary`.`movie`;
+/* 2021-08-01 22:05:12 [mingki] */ SELECT * FROM `diary`.`movie` LIMIT 1000;

@@ -1,0 +1,25 @@
+/* 2021-07-31 13:14:10 [mingki] */ /* 127.0.0.1 에 MariaDB (TCP/IP) 을(를) 통해 연결 중, 사용자 이름 "mingki", 암호 사용: Yes… */
+/* 2021-07-31 13:14:10 [mingki] */ SELECT CONNECTION_ID();
+/* 2021-07-31 13:14:10 [mingki] */ /* 연결됨. 스레드-ID: 3 */
+/* 2021-07-31 13:14:10 [mingki] */ /* 문자 집합: utf8mb4 */
+/* 2021-07-31 13:14:10 [mingki] */ SHOW STATUS;
+/* 2021-07-31 13:14:10 [mingki] */ SELECT NOW();
+/* 2021-07-31 13:14:10 [mingki] */ SHOW VARIABLES;
+/* 2021-07-31 13:14:10 [mingki] */ SHOW OPEN TABLES FROM bootex WHERE `in_use`!=0;
+/* 2021-07-31 13:14:10 [mingki] */ USE `bootex`;
+/* 2021-07-31 13:14:10 [] */ /* "mingki" 세션 시작 */
+/* 2021-07-31 13:14:10 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-07-31 13:14:10 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-07-31 13:14:10 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-07-31 13:14:10 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-07-31 13:14:10 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-07-31 13:14:10 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-07-31 13:14:10 [] */ /* Loading file "D:\git_ming\DB\DB\MariaDB\07_01db생성.sql" (295 B) into query tab #1 ... */
+/* 2021-07-31 13:14:14 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`reply`;
+/* 2021-07-31 13:14:14 [mingki] */ SHOW INDEXES FROM `reply` FROM `bootex`;
+/* 2021-07-31 13:14:14 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-31 13:14:14 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='reply'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-07-31 13:14:14 [mingki] */ SHOW ENGINES;
+/* 2021-07-31 13:14:14 [mingki] */ SHOW COLLATION;
+/* 2021-07-31 13:14:15 [mingki] */ SHOW CREATE TABLE `bootex`.`reply`;
+/* 2021-07-31 13:14:17 [mingki] */ SELECT * FROM `bootex`.`reply` ORDER BY `rno` ASC, `text` DESC, `board_bno` DESC LIMIT 1000;
