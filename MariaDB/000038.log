@@ -78,4 +78,35 @@
 /* 2021-08-02 22:18:50 [mingki] */ SHOW CREATE TABLE `bootex`.`movie`;
 /* 2021-08-02 22:18:50 [mingki] */ SELECT * FROM `bootex`.`movie` LIMIT 1000;
 /* 2021-08-02 22:18:52 [mingki] */ SHOW CREATE TABLE `bootex`.`movie_image`;
-/* 2021-08-02 22:18:52 [mingki] */ SELECT * FROM `bootex`.`movie_ima
+/* 2021-08-02 22:18:52 [mingki] */ SELECT * FROM `bootex`.`movie_image` LIMIT 1000;
+/* 2021-08-02 22:23:25 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`guestbook`;
+/* 2021-08-02 22:23:25 [mingki] */ SHOW INDEXES FROM `guestbook` FROM `bootex`;
+/* 2021-08-02 22:23:25 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:25 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='guestbook'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:25 [mingki] */ SHOW CREATE TABLE `bootex`.`guestbook`;
+/* 2021-08-02 22:23:25 [mingki] */ SELECT  `gno`,  `moddate`,  `regdate`,  LEFT(`content`, 256),  `title`,  `writer` FROM `bootex`.`guestbook` ORDER BY `gno` DESC, `regdate` ASC LIMIT 1000;
+/* 2021-08-02 22:23:26 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`member`;
+/* 2021-08-02 22:23:26 [mingki] */ SHOW INDEXES FROM `member` FROM `bootex`;
+/* 2021-08-02 22:23:26 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:26 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='member'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:26 [mingki] */ SHOW CREATE TABLE `bootex`.`member`;
+/* 2021-08-02 22:23:26 [mingki] */ SELECT * FROM `bootex`.`member` ORDER BY `email` ASC, `name` DESC LIMIT 1000;
+/* 2021-08-02 22:23:38 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`m_membe`;
+/* 2021-08-02 22:23:38 [mingki] */ SHOW INDEXES FROM `m_membe` FROM `bootex`;
+/* 2021-08-02 22:23:38 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='m_membe'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:38 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='m_membe'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:23:38 [mingki] */ SHOW CREATE TABLE `bootex`.`m_membe`;
+/* 2021-08-02 22:23:38 [mingki] */ SELECT * FROM `bootex`.`m_membe` LIMIT 1000;
+/* 2021-08-02 22:31:18 [] */ /* "mingki" 세션 시작 */
+/* 2021-08-02 22:31:18 [mingki] */ SELECT `DEFAULT_COLLATION_NAME` FROM `information_schema`.`SCHEMATA` WHERE `SCHEMA_NAME`='bootex';
+/* 2021-08-02 22:31:18 [mingki] */ SHOW TABLE STATUS FROM `bootex`;
+/* 2021-08-02 22:31:18 [mingki] */ SHOW FUNCTION STATUS WHERE `Db`='bootex';
+/* 2021-08-02 22:31:18 [mingki] */ SHOW PROCEDURE STATUS WHERE `Db`='bootex';
+/* 2021-08-02 22:31:18 [mingki] */ SHOW TRIGGERS FROM `bootex`;
+/* 2021-08-02 22:31:18 [mingki] */ SHOW EVENTS FROM `bootex`;
+/* 2021-08-02 22:31:23 [mingki] */ SHOW FULL COLUMNS FROM `bootex`.`review`;
+/* 2021-08-02 22:31:23 [mingki] */ SHOW INDEXES FROM `review` FROM `bootex`;
+/* 2021-08-02 22:31:23 [mingki] */ SELECT * FROM information_schema.REFERENTIAL_CONSTRAINTS WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='review'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:31:23 [mingki] */ SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE   CONSTRAINT_SCHEMA='bootex'   AND TABLE_NAME='review'   AND REFERENCED_TABLE_NAME IS NOT NULL;
+/* 2021-08-02 22:31:23 [mingki] */ SHOW CREATE TABLE `bootex`.`review`;
+/* 2021-08-02 22:31:24 [mingki] */ SELECT * FROM `bootex`.`review` LIMIT 1000;
